@@ -188,9 +188,16 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .addContent .col-right .content .upload-pic{ background:#eef2f2; border:1px solid #dce6ea; zoom:1; padding:1px;}
 .addContent .col-right select#template{max-width:188px;*width:188px;_width:188px}
 */
-
-.addContent{width:1300px; margin:0 auto; overflow:hidden;}
-.addContent .col-right{width:204px; overflow:hidden;}
+.edui-editor-iframeholder{
+	border:solid #f1f1f1;
+	border-width: 10px 20px;
+	box-sizing: border-box;
+}
+.text-c{text-align: center;}
+.table_form textarea{display: block;margin-bottom: 6px;}
+.addContent{width:1280px; margin:0 auto; overflow:hidden;}
+.addContent .col-auto{}
+.addContent .col-right{width:204px; overflow:hidden;float: right;}
 .addContent .col-right .content h6{ border-bottom:1px solid #cfdce3; padding:8px 0 3px; margin-bottom:7px}
 .addContent .col-right .content input{max-width:182px}
 .addContent .col-right .content .upload-pic{width:180px;height:180px;text-align:center;overflow:hidden;}

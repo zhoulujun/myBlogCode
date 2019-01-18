@@ -20,7 +20,7 @@ body fieldset legend{padding:3px 8px;font-weight:700;border:1px solid #D8D8D8;ba
 body fieldset.blue{border:1px solid #dce3ed}
 body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; background:none; border:none}
 .fixed-bottom{height:60px;_margin-top:12px}
-.fixed-bottom .fixed-but{position: fixed;_position: relative; bottom:0;height:30px; border-top:1px solid #f1f1f1; padding:10px 0; width:100%;background: #fff url(../images/admin_img/x_bg.png) repeat-x 0 -100px;}
+.fixed-bottom .fixed-but{z-index: 999;position: fixed;_position: relative; bottom:0;height:30px; border-top:1px solid #f1f1f1; padding:10px 0; width:100%;background: #fff url(../images/admin_img/x_bg.png) repeat-x 0 -100px;}
 .fixed-bottom .fixed-but .button,.fixed-bottom .fixed-but .button input{
 	background: url(../images/admin_img/btn-content.png) no-repeat; border:none; height:32px; line-height:32px; vertical-align:middle; margin:0;}
 .fixed-bottom .fixed-but .button{padding:0 0 0 10px; margin:0; margin:0 5px}
@@ -188,10 +188,16 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .addContent .col-right .content .upload-pic{ background:#eef2f2; border:1px solid #dce6ea; zoom:1; padding:1px;}
 .addContent .col-right select#template{max-width:188px;*width:188px;_width:188px}
 */
-
-.addContent{width:1300px; margin:0 auto; overflow:hidden;}
+.edui-editor-iframeholder{
+	border:solid #f1f1f1;
+	border-width: 10px 20px;
+	box-sizing: border-box;
+}
+.table_form textarea{display: block;margin-bottom: 6px;}
+.addContent{width:1280px; margin:0 auto; overflow:hidden;}
 .addContent .col-auto{}
-.addContent .col-right{ width:204px; overflow:hidden; margin-left:6px;}
+.text-c{text-align: center;}
+.addContent .col-right{ width:204px; overflow:hidden; margin-left:6px;float: right;}
 .addContent .col-right .content h6{ border-bottom:1px solid #cfdce3; padding:8px 0 3px; margin-bottom:7px}
 .addContent .col-right .content input{max-width:182px}
 .addContent .col-right .content .upload-pic{width:180px;height:180px;text-align:center;overflow:hidden;}

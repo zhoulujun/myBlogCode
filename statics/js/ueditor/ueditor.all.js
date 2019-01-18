@@ -6918,15 +6918,15 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
                 var html = ( ie && browser.version < 9  ? '' : '<!DOCTYPE html>') +
                     '<html xmlns=\'http://www.w3.org/1999/xhtml\' class=\'view\' ><head>' +
-                    '<style type=\'text/css\'>' +
+                    // '<style type=\'text/css\'>' +
                     //设置四周的留边
-                    '.view{padding:0 20px;height:90%;}\n' +
+                    // '.view{padding:0 20px;height:90%;}\n' +
                     //设置默认字体和字号
                     //font-family不能呢随便改，在safari下fillchar会有解析问题
                     // 'body{margin:8px;font-family:sans-serif;font-size:16px;}' +
                     //设置段落间距
                     // 'p{margin:5px 0;}' +
-                    '</style>' +
+                    // '</style>' +
                     ( options.iframeCssUrl ? '<link rel=\'stylesheet\' type=\'text/css\' href=\'' + utils.unhtml(options.iframeCssUrl) + '\'/>' : '' ) +
                     (options.initialStyle ? '<style>' + options.initialStyle + '</style>' : '') +
                     '</head><body class=\'view\' ></body>' +
@@ -7273,7 +7273,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             }
             return '<html><head>' + (me.options.charset ? '<meta http-equiv="Content-Type" content="text/html; charset=' + me.options.charset + '"/>' : '')
                 + (headHtmlForIE9 || me.document.getElementsByTagName('head')[0].innerHTML) + headHtml.join('\n') + '</head>'
-                + '<body ' + (ie && browser.version < 9 ? 'class="view"' : '') + '>' + me.getContent(null, null, true) + '</body></html>';
+                + '<body ' + (ie && browser.version < 9 ? 'class="frame-body"' : '') + '>' + me.getContent(null, null, true) + '</body></html>';
         },
 
         /**
@@ -8059,7 +8059,7 @@ UE.Editor.defaultOptions = function(editor){
         autoClearEmptyNode: true,
         fullscreen: false,
         readonly: false,
-        zIndex: 998,
+        zIndex: 900,
         imagePopup: true,
         enterTag: 'p',
         customDomain: false,

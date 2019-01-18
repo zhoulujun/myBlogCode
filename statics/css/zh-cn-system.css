@@ -49,7 +49,7 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 	.header .nav li.tab_web a{ position:absolute;}
 	.header .nav li.tab_web a,
 	.header .nav li.tab_web a span{background: url(../images/admin_img/site.png) no-repeat;height:34px;line-height:34px;*line-height:38px;_float: left}
-	
+
 	.header .nav li.tab_web{background:none; line-height:38px; vertical-align:middle; padding:0;}
 	.header .nav li.tab_web a{padding:0;padding-left:10px;cursor: hand;!important;cursor: pointer;white-space: nowrap;}
 	.header .nav li.tab_web a:hover,.header .nav li.tab_web a.on{text-decoration: none;color:#3a6ea5;background-position: left -40px; }
@@ -61,7 +61,7 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 	.tab-web-panel ul.tab-scroll{overflow-y:auto; overflow-x:hidden;height:220px;width:150px}
 	.tab-web-panel li a{padding:3px 8px 3px 8px;display:block; padding-right:22px;height:18px;line-height:18px;white-space: nowrap;width:105px}
 	.tab-web-panel li a:hover,.tab-web-panel li.on a{ background-color:#d5e5f6;background-position:50px -52px;}
-	
+
 .header .col-auto{height:80px}
 .header .log{padding:16px 0 0 6px; height:20px}
 .header .tab_style{padding:16px 14px 0 0}
@@ -151,8 +151,8 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .content-menu a{cursor:pointer;}
 .content-menu a.add{ padding:0 0 0 5px;}
 .content-menu a.add em{ padding:0 10px 0 5px;color:#fff;background-position: right top}
-.content-menu a.on{background-position: left -40px;*background-position: left -41px;_background-position: left -39px; color:#fff; padding:0 0 0 5px;}
-.content-menu a.on em{background-position: right -40px;*background-position: right -41px;_background-position: right -39px; padding:0 10px 0 5px}
+.content-menu a.on{background-position: left -40px;*background-position: left -41px; color:#fff; padding:0 0 0 5px;}
+.content-menu a.on em{background-position: right -40px;*background-position: right -41px; padding:0 10px 0 5px}
 /*分页*/
 #pages { padding:14px 0 10px;font-family:宋体; text-align:right}
 #pages a { display:inline-block; height:22px; line-height:22px; background:#fff; border:1px solid #e3e3e3; text-align:center; color:#333; padding:0 10px}
@@ -189,8 +189,7 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .addContent .col-right select#template{max-width:188px;*width:188px;_width:188px}
 */
 
-.addContent{width:980px; margin:0 auto; overflow:hidden;}
-.addContent .col-auto{}
+.addContent{width:1300px; margin:0 auto; overflow:hidden;}
 .addContent .col-right{width:204px; overflow:hidden;}
 .addContent .col-right .content h6{ border-bottom:1px solid #cfdce3; padding:8px 0 3px; margin-bottom:7px}
 .addContent .col-right .content input{max-width:182px}
@@ -229,7 +228,7 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 	.fillet span.o2{background-position: right -6px; top:-1px; right:-1px}
 	.fillet span.o3{background-position: left bottom; bottom:-1px; left:-1px}
 	.fillet span.o4{background-position: right bottom; bottom:-1px; right:-1px;}
-	
+
 /*工作流*/
 .workflow{padding:10px 140px 10px 10px;}
 .workflow .col{padding-bottom:20px;background: url(../images/admin_img/arrowhead-y.png) no-repeat 10px bottom;}

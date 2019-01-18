@@ -6,7 +6,7 @@ a:hover{text-decoration:underline;}
 .pad-6{padding:6px; overflow:hidden}.pad-10{padding:10px; overflow:hidden}.pad_10,.pad-lr-10{padding:0 10px}.pad-lr-6{padding:0 6px}
 .hr{background: url(../images/uline.gif) repeat-x center center;}
 .hr hr{display:none}
-.border-none,.border-none-td td,{border:none}
+.border-none,.border-none-td td{border:none}
 .ib, .ib-li li, .ib-a a, .ib-span span,.common-form ul li span.text,.fixed-bottom .fixed-but .button,.arrowhead,.arrowhead-b,#Skin li,.shortcut a,.shortcut a span,.picBut a,.tab-use,.scroll a{display:inline-block;zoom:1;*display:inline;}
 .cut_line span{ color:#4d82bc; padding:0 4px}
 .mr6{margin-right:6px}.mr8{margin-right:8px}.mr10{margin-right:10px}.mb6{margin-bottom:6px}.mb8{margin-bottom:8px}.mb10{margin-bottom:10px}
@@ -151,8 +151,8 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .content-menu a{cursor:pointer;}
 .content-menu a.add{ padding:0 0 0 5px;}
 .content-menu a.add em{ padding:0 10px 0 5px;color:#fff;background-position: right top}
-.content-menu a.on{background-position: left -40px;*background-position: left -41px;_background-position: left -39px; color:#fff; padding:0 0 0 5px;}
-.content-menu a.on em{background-position: right -40px;*background-position: right -41px;_background-position: right -39px; padding:0 10px 0 5px}
+.content-menu a.on{background-position: left -40px;*background-position: left -41px; color:#fff; padding:0 0 0 5px;}
+.content-menu a.on em{background-position: right -40px;*background-position: right -41px; padding:0 10px 0 5px}
 /*分页*/
 #pages { padding:14px 0 10px;font-family:宋体; text-align:right}
 #pages a { display:inline-block; height:22px; line-height:22px; background:#fff; border:1px solid #e3e3e3; text-align:center; color:#333; padding:0 10px}
@@ -189,7 +189,7 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .addContent .col-right select#template{max-width:188px;*width:188px;_width:188px}
 */
 
-.addContent{width:1270px; margin:0 auto; overflow:hidden;}
+.addContent{width:1300px; margin:0 auto; overflow:hidden;}
 .addContent .col-auto{}
 .addContent .col-right{ width:204px; overflow:hidden; margin-left:6px;}
 .addContent .col-right .content h6{ border-bottom:1px solid #cfdce3; padding:8px 0 3px; margin-bottom:7px}

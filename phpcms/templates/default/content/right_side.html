@@ -1,0 +1,41 @@
+<aside class="col-right fr">
+
+    {pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
+    {if !empty($data)}
+    <article class="box">
+        <h5 >频道总排行</h5>
+        <ul class="tab-item ">
+
+            {loop $data $v}
+            {php $rank++}
+            <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="点击排名"><strong>{$rank}</strong> <span class="icon-font">&#xe605;</span></label><a href="{$v[url]}" {title_style($v[style])}>{$v[title]}</a></li>
+            {/loop}
+
+        </ul>
+
+    </article>
+    {/if}
+    {/pc}
+    <div class="top15 ads-h300" id="RightTop"></div>
+    {pc:content action="hits" catid="$catid" num="8" order="monthviews DESC" cache="3600"}
+    {if !empty($data)}
+    <nav class="box top15">
+        <h5 >频道本月排行</h5>
+        <ul class="tab-item ">
+
+            {loop $data $v}
+            <li {if $n%2==0}class='even'{/if}><label class="rank-label btn-success" title="点击次数"><strong>{number_format($v[monthviews])}</strong> <span class="icon-font">&#xe605;</span></label><a href="{$v[url]}"{title_style($v[style])} class="title" title="{$v[title]}">{str_cut($v[title],56,'...')}</a></li>
+            {/loop}
+            {/pc}
+        </ul>
+
+    </nav>
+    {/if}
+    {/pc}
+    <div class="box hidden">
+        <h5>相关推荐</h5>
+        <div class="recommend">
+        </div>
+    </div>
+</aside>
+

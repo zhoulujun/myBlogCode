@@ -1,0 +1,112 @@
+{template "content","header"}
+
+<!--main-->
+<article class="main-content wrap">
+    <div class="crumbs"><a href="{APP_PATH}">首页</a><span> > </span>{catpos($catid)}搜索</div>
+    <section  class="col-left fl">
+        <form class="" name="myform" method="get" action="">
+            {loop $forminfos $field $info}
+            <span class="top10"><label>{$info[name]}：</label>{$info[form]}{if $info[formtype]=='datetime'}之后{/if}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            {/loop}
+
+        <span class="top10"><label>排序方式:</label><select name="orderby" id="orderby" size="1">
+            <option value="a.id DESC">发布时间 降序</option>
+            <option value="a.id ASC">发布时间 升序</option>
+        </select></span>
+            <p class="top10">
+                <input class="btn btn-primary" type="submit" value="搜索"/>
+            </p>
+            <input type="hidden" name="m" value="content">
+            <input type="hidden" name="c" value="search">
+            <input type="hidden" name="a" value="init">
+            <input type="hidden" name="catid" value="{$catid}">
+            <input type="hidden" name="dosubmit" value="1">
+        </form>
+        <p class="top10">共找到符合条件的结果 <strong class="red">{$total}</strong> 条</p>
+        <section class="tab-item top10">
+            {loop $datas $r}
+            <li>
+                <h5 class=" article-li  ">
+                    <a class="blue" href="{$r[url]}" target="_blank" >{$r[title]}</a>
+                    <a class="gray"
+                       href="{if strpos($CATEGORYS[$r[catid]][url],'https://')===false}{$siteurl}{$CATEGORYS[$r[catid]][url]}{else}{$CATEGORYS[$r[catid]][url]}{/if}"
+                            >-{$CATEGORYS[$r[catid]][catname]}</a>
+                    <time>{date('Y-m-d H:i',$r[updatetime])}</time>
+                </h5>
+                {if $r[thumb]}
+                <a class="hots-list-p">
+                    <img src="{thumb($r[thumb],90,52)}" />
+                    <p class="hots-list-txt">
+
+                        {$r[description]}
+                    </p>
+                </a>
+
+                {else}
+                <p class="hots-list-txt">
+
+                    {$r[description]}
+                </p>
+                {/if}
+
+            </li>
+            {/loop}
+
+        </section>
+        <div id="pages">{$pages}</div>
+    </section>
+    <aside class="col-right fr">
+        {pc:announce  action="lists" siteid="$siteid" num="4"}
+        {if !empty($data)}
+        <article class="box">
+            <h5>公告<a href="" class="more">&nbsp;</a></h5>
+
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><a href="{APP_PATH}index.php?m=announce&c=index&a=show&aid={$r['aid']}">{$r['title']}</a></li>
+                {/loop}
+            </ul>
+
+        </article>
+        {/if}
+        {/pc}
+
+        {pc:content action="hits" catid="95" num="10" order="views DESC"}
+        {if !empty($data)}
+        <article class="box">
+            <h5 >热点</h5>
+
+            <ul class="tab-item ">
+
+                {loop $data $v}
+                {php $rank++}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="点击排名"><strong>{$rank}</strong> <span class="icon-font">&#xe605;</span></label><a href="{$v[url]}" {title_style($v[style])}>{$v[title]}</a></li>
+                {/loop}
+
+            </ul>
+
+        </article>
+        {/if}
+        {/pc}
+
+        {pc:comment action="bang" num="10" cache="3600"}
+        {if !empty($data)}
+        <article class="box">
+            <h5 >评论</h5>
+
+            <ul class="tab-item ">
+
+                {loop $data $v}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-label btn-success" title="评论"><strong>{number_format($v[monthviews])}</strong> <span class="icon-font">&#xe60d;</span></label><a href="{$v[url]}"{title_style($v[style])} class="title" title="{$v[title]}">{str_cut($v[title],56,'...')}</a></li>
+                {/loop}
+                {/pc}
+            </ul>
+
+        </article>
+        {/if}
+        {/pc}
+
+    </aside>
+</article>
+{template "content","footer"}
+{template "content","foot_end"}

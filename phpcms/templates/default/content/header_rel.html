@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<link rel="dns-prefetch" href="https://www.zhoulujun.cn">
+	<link rel="dns-prefetch" href="https://libs.useso.com">
+	<meta property="qc:admins" content="6701301207545256636" />
+	<meta property="qc:admins" content="67013017776207545256636" />
+	<meta property="wb:webmaster" content="8baa6e7bb45eab5e" />
+	<meta name="chinaz-site-verification" content="0E4F89F8-B10A-32F4-D9C3-9E3CA5C8D47C" />
+	<meta name="msvalidate.01" content="1C203FC6D1C5223538CCA9D441142232" />
+	<meta name="p:domain_verify" content="c7ac0159c403ba1a0511e67218713854"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta content="yes" name="apple-mobile-web-app-capable"/>
+	<meta name="apple-touch-fullscreen" content="yes"/>
+	<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+	<meta name="keywords" content="{if strpos($SEO['keyword'],'周陆军')}{$SEO['keyword'] }{else}{$SEO['keyword']},周陆军,陆军 {/if}"/>
+	<meta name="author" content="周陆军"/>
+	<meta name="description" content="{$SEO['description']}"/>
+	<link rel="stylesheet" type="text/css"  rel="preconnect" href="{CSS_PATH_CDN}frontend/frontend.css"  />
+	<link href="{APP_PATH}favicon.ico" rel="bookmark" type="image/x-icon" />
+	<link href="{APP_PATH}favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="{APP_PATH}favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<link href="{APP_PATH}favicon.ico" rel="apple-touch-icon" type="image/x-icon" />
+	<link rel="canonical" href=""/>
+	<!--[if lt IE 9]>
+	<script defer="defer" type="text/javascript" src="https://libs.useso.com/js/html5shiv/r29/html5.min.js"></script>
+	<script defer="defer" type="text/javascript" src="https://libs.useso.com/js/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+<div class="hidden">
+	<script async="async" type="text/javascript" src="https://hm.baidu.com/hm.js?fb9c1736a4afe1362425e69c7414079c"></script>
+</div>
+	<header class="header-s">
+		<section class="block">
+			<div class=" icon-h-sound"><span class="icon-font">&#xe601;</span>&nbsp;</div>
+			<nav id="announ">
+				<div  id="slider_header" class="slides-box" >
+					<!-- Loading Screen -->
+					<!-- Slides Container -->
+					<div class="slides" u="slides" >
+						{pc:content  action="position" posid="9" order="id" num="10" cache="3600"}
+						{loop $data $k $v}
+
+						<div>
+							<a u="image"  href="{$v[url]}" title="{$v[title]}">{$v[title]}</a>
+						</div>
+						{/loop}
+						{/pc}
+					</div>
+				</div>
+			</nav>
+			{php echo runhook('glogal_header')}
+
+			<a class="fl rss" href="{APP_PATH}index.php?m=content&c=rss&siteid={get_siteid()}" >|&nbsp;RSS</a>
+			<span class="login-box">
+				<script async="async" type="text/javascript">
+					document.querySelector(".login-box").innerHTML='<iframe src="{APP_PATH}index.php?m=member&c=index&a=mini&forward='+encodeURIComponent(location.href)+'&siteid={get_siteid()}" allowTransparency="true"  width="100%" height="30"  frameborder="0" scrolling="no"></iframe>'
+				</script>
+			</span>
+		</section>
+	</header>
+	<article class="search-box wrap">
+		<a class="logo" href="{siteurl($siteid)}/"><img src="https://cache.zhoulujun.cn/images/andy/logo_my.png" alt="周陆军的logo" /></a>
+		<div class="search">
+			<div class="search-tab" id="search">
+				{php $j=0}
+				{php $search_model = getcache('search_model_'.$siteid, 'search');}
+				{loop $search_model $k=>$v}
+				{php $j++;}
+				<a href="javascript:;" onclick="setmodel({$v['typeid']}, $(this));" style="outline:medium none;" hidefocus="true" {if $j==1 && $typeid=$v['typeid']} class="on" {/if}>{$v['name']}</a>{if $j != count($search_model)}<span> | </span>{/if}
+				{/loop}
+				{php unset($j);}
+			</div>
+			<form class="search-bd" action="{APP_PATH}index.php" method="get" target="_blank">
+				<input type="hidden" name="m" value="search"/>
+				<input type="hidden" name="c" value="index"/>
+				<input type="hidden" name="a" value="init"/>
+				<input type="hidden" name="typeid" value="{$typeid}" id="typeid"/>
+				<input type="hidden" name="siteid" value="{$siteid}" id="siteid"/>
+				<div class="search-icon"></div>
+				<input type="text" class="search-text" name="q" id="q"/><input class="search-button" type="submit" value="搜 索"  />
+			</form>
+		</div>
+		<section class="banner">
+			<p class="banner-p4" title="Stay Hungry. Stay Foolish">
+				Stay Hungry. Stay Foolish.&nbsp;&nbsp;<i>Steve Paul Jobs,2005</i>
+			</p>
+			<p class="banner-p3" title="What the Hell is Cloud Computing">
+				What the Hell is Cloud Computing?&nbsp;&nbsp;<i>Oracle CEO,2009</i>
+			</p>
+			<p class="banner-p2" title="640K ought to be enough for anyone">
+				640K ought to be enough for anyone.&nbsp;&nbsp;<i>Founder of Microsoft,1981</i>
+			</p>
+			<p class="banner-p1" title="I think there is a world market for maybe five computers">
+				I think there is a world market for maybe five computers.&nbsp;&nbsp;<i>President of IBM,1943</i>
+			</p>
+		</section>
+	</article>
+
+	<nav class="block">
+		{pc:content action="category" catid="0" num="45" siteid="$siteid" order="listorder ASC"}
+		<ul class="nav-site">
+			<li class="nav-item">
+				<a href="https://www.zhoulujun.cn">首页</a>
+			</li>
+			{loop $data $k $r}
+			{$r[length]}
+			<li class="nav-item {if $r[catname]=='ML'}active{/if} {if $top_parentid == $r[catid]||$catid==$r[catid]||$parentid==$r[catid]} current{/if}">
+				<a href="{$r[url]}">{$r[catname]}</a>
+				<ul class="nav-sub " >
+					{pc:content action="category" catid="$k" num="15" siteid="$siteid" order="listorder ASC"}
+					{loop $data $r}
+					<li class="nav-sub-item"><a href="{$r[url]}">{$r[catname]}</a></li>
+					{/loop}
+					{/pc}
+
+				</ul>
+
+			</li>
+			{/loop}
+			<li class="clear"></li>
+		</ul>
+		{/pc}
+		{php echo runhook('glogal_menu')}
+
+	</nav>
+	{if $top_parentid}
+	<nav class="subnav block ">
+		{pc:content action="category" catid="$top_parentid" num="15" siteid="$siteid" order="listorder ASC"}
+		{loop $data $r}
+
+		<a {if $catid==$r[catid]||$parentid==$r[catid]} class=" current" {/if} href="{$r[url]}">{$r[catname]}</a>
+		{/loop}
+		{/pc}
+		<!--<a href="{APP_PATH}index.php?m=video&c=index&a=album">视频专辑</a>-->
+		{if $modelid}<a href="{APP_PATH}index.php?m=content&c=search&catid={$catid}">搜索</a>{/if}
+	</nav>
+	{/if}
+

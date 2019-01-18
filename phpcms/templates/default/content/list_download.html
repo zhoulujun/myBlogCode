@@ -1,0 +1,75 @@
+{template "content","header"}
+<article class="main-content wrap">
+    <div class="crumbs"><a href="https://www.zhoulujun.cn">首页</a><span> > </span>{catpos($catid)} 列表</div>
+    <article class="col-left fl">
+
+        {pc:content action="lists" catid="$catid" num="15" order="id DESC" page="$page"}
+        <div class="box com-list">
+            {loop $data $r}
+            <h5 >
+                <a class="fl" href="{$r[url]}" title="{$r[title]}">{$r[title]}</a>
+                <span class="fr">{date('Y-m-d',$r[inputtime])}</span>
+            </h5>
+
+            <div class="zone">
+                {$r[description]}
+                <div class="fr">
+                    <span class="stars-rank blue">{$r[stars]}</span><span>软件大小：</span><span class="blue">{$r[filesize]}</span>
+
+                </div>
+            </div>
+            {/loop}
+        </div>
+        <div id="pages" class="tc">{$pages}</div>
+        {/pc}
+
+
+    </article>
+    <aside class="col-right fr">
+        <article class="box">
+            <h5>公告<a href="" class="more">&nbsp;</a></h5>
+            {pc:announce  action="lists" siteid="$siteid" num="4"}
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><a href="{APP_PATH}index.php?m=announce&c=index&a=show&aid={$r['aid']}">{$r['title']}</a></li>
+                {/loop}
+            </ul>
+            {/pc}
+        </article>
+
+
+
+        {pc:content  action="position" posid="5" order="listorder DESC" num="5"}
+        {if !empty($data)}
+        <article class="box">
+            <h5 >推荐下载</h5>
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="点击下载"><strong></strong> {$n} <span class="icon-font">&#xe628;</span></label><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],34)}</a></li>
+                {/loop}
+            </ul>
+        </article>
+        {/if}
+        {/pc}
+
+        {pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
+        {if !empty($data)}
+        <article class="box">
+            <h5 >下载排行</h5>
+            <ul class="tab-item">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="下载次数"><strong></strong> {$n} <span class="icon-font">&#xe60f;</span></label><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+                {/loop}
+            </ul>
+        </article>
+        {/if}
+        {/pc}
+
+    </aside>
+</article>
+
+
+{template "content","footer"}
+
+
+{template "content","foot_end"}

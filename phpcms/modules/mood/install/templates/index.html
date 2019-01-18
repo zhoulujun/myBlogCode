@@ -1,0 +1,27 @@
+
+<div id="mood">
+	<ul class="mood-ul">
+		{loop $setting $k $v}
+		<li>
+			<div>{$data[$v['fields']]}</div>
+			<div class="pillar{if isset($key) && $key==$k} pass{/if}"></div>
+			{if $v[pic]}<img src="{IMG_PATH}{$v[pic]}">{/if}
+			<label for="n{$k}">{$v[name]}<br/><input type="radio" id="n{$k}" name="n" onclick="vote({$k})"
+													 </label>
+			{if isset($key) && $key==$k} checked{/if}>
+		</li>
+		{/loop}
+	</ul>
+</div>
+<script type="text/javascript">
+function vote(id) {
+	$.getJSON('{APP_PATH}index.php?m=mood&c=index&a=post&id={$mood_id}&k='+id+'&'+Math.random()+'&callback=?', function(data){
+		if(data.status==1)	{
+			$('#mood').html(data.data);
+		}else {
+			alert(data.data);
+		}
+	})
+}
+
+</script>                                                           

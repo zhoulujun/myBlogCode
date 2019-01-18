@@ -1,0 +1,26 @@
+{template "content","header"}
+<article class="main-content wrap">
+    <div class="crumbs"><a href="https://www.zhoulujun.cn">首页</a><span> &gt; </span>{catpos($catid)} 列表</div>
+    <section class="col-left fl">
+
+            {pc:content action="lists" catid="$catid" num="60" order="listorder DESC,inputtime DESC" page="$page"}
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li class="article-li  {if $n%2==0}even{/if}">
+                    <a class="" href="{$r[url]}" target="_blank"{title_style($r[style])}>{$r[title]}</a>
+                    <time>{date('Y-m-d H:i:s',$r[inputtime])}</time>
+                </li>
+                {if $n%10==0}<li style="border: none"></li>{/if}
+                {/loop}
+            </ul>
+            <div id="pages">{$pages}</div>
+            {/pc}
+        <div class="top15 ov" id="leftBottom"></div>
+    </section>
+    {template "content","right_side"}
+</article>
+
+<!--main-->
+{template "content","footer"}
+</body>
+</html>

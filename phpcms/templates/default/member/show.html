@@ -1,0 +1,139 @@
+{template 'content', 'header'}
+<article class="main-content wrap">
+    <div class="crumbs ov">
+        <a href="https://www.zhoulujun.cn">首页</a><span> > </span>{catpos($catid)}<span> > </span>正文
+        <a class='fr' href="http://search.zhoulujun.cn/cse/search?s=1004174691343927075&nsid=0&q={$SEO['keyword']}" target='_blank'>相关推荐</a>
+    </div>
+    <section class="col-left fl">
+        <article id="Article" class="article">
+            <header>
+                <h1 class="main-title txth">{$title}</h1>
+                <p class="detail-info tc">
+                    {if !empty($username)}<strong>发布人：</strong><span>{$username}</span>&nbsp;&nbsp;&nbsp;{/if} <strong>点击：</strong><span id="hits"></span>
+                </p>
+            </header>
+            {if $description}
+            <p class="summary">{$description}</p>
+            {/if}
+            <section class="con-box">
+                {if $allow_visitor==1}
+                {$content}
+                <!--内容关联投票-->
+                {if $voteid}
+                <script language="javascript" src="{APP_PATH}index.php?m=vote&c=index&a=show&action=js&subjectid={$voteid}&type=2"></script>
+                {/if}
+
+                {else}
+                <section class="tc">
+                    <p class="blue">阅读此信息需要您支付 <strong>{$readpoint} {if $paytype}元{else}点{/if}</strong></p>
+
+                    <a class="btn btn-warning top10" href="{APP_PATH}index.php?m=content&c=readpoint&allow_visitor={$allow_visitor}">点击这里支付</a>
+                </section>
+                {/if}
+            </section>
+            <div class="ov  box top10  ads-h60" id="LeftBottomTop"></div>
+            <section class="top10">
+                <label class="fl">
+                    <strong>相关热词搜索：</strong>
+                    {loop $keywords $keyword}
+                    <a class="blue" href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" >{$keyword}</a>
+                    {/loop}
+                </label>
+                <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare"></div>
+                <span id='favorite' class="fr"><a href="javascript:;" onclick="add_favorite('{addslashes($title)}');" class="t6">收藏</a></span>
+                <div class="clear"></div>
+            </section>
+            <div class="top10 ov">
+                <div class='fl txth half'><strong>上一篇：</strong><a href="{$previous_page[url]}">{$previous_page[title]}</a></div>
+                <div class='fl txth half'><strong>下一篇：</strong><a href="{$next_page[url]}">{$next_page[title]}</a></div>
+            </div>
+            {if $pages}
+            <div id="pages tops">{$pages}</div>
+            {/if}
+            {if $titles}
+            <section class="box top20">
+                <h5>本文导航</h5>
+                <ul class="tab-item ">
+                    {loop $titles $r}
+                    <li {if $n%2==0}class='even'{/if}>{$n}、<a href="{$r[url]}">{$r[title]}</a></li>
+                    {/loop}
+                </ul>
+            </section>
+            {/if}
+            {pc:content action="relation" relation="$relation" id="$id" catid="$catid" num="25" keywords="$rs[keywords]"}
+            {if $data}
+            <div class="box top10">
+                <h5 class="blue">延伸阅读：</h5>
+                <ul class="tab-item">
+                    {loop $data $r}
+                    <li class="article-li {if $n%2==0}even{/if} " >
+                        <a href="{$r[url]}" >{$r[title]}</a><time>{date('Y-m-d',$r[inputtime])}</time>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {/pc}
+            <div class="top10 box ov" id="leftBottom"></div>
+            {if $allow_comment && module_exists('comment')}
+            <iframe src="{APP_PATH}index.php?m=comment&c=index&a=init&commentid={id_encode("content_$catid",$id,$siteid)}&iframe=1" width="100%" height="100%" id="comment_iframe" frameborder="0" scrolling="no"></iframe>
+            {/if}
+        </article>
+    </section>
+    {template "content","right_side"}
+</article>
+<!--main-->
+{template 'content', 'footer'}
+<script defer="defer">
+    function show_ajax(obj) {
+        var keywords = $(obj).text();
+        var offset = $(obj).offset();
+        var jsonitem = '';
+        $.getJSON("{APP_PATH}index.php?m=content&c=index&a=json_list&type=keyword&modelid={$modelid}&id={$id}&keywords="+encodeURIComponent(keywords),
+            function(data){
+                var j = 1;
+                var string = "<div class='point key-float'><div style='position:relative'><div class='arro'></div>";
+                string += "<a href='JavaScript:;' onclick='$(this).parent().parent().remove();' hidefocus='true' class='close'><span>关闭</span></a><div class='contents f12'>";
+                if(data!=0) {
+                    $.each(data, function(i,item){
+                        j = i+1;
+                        jsonitem += "<a href='"+item.url+"' target='_blank'>"+j+"、"+item.title+"</a><BR>";
+
+                    });
+                    string += jsonitem;
+                } else {
+                    string += '没有找到相关的信息！';
+                }
+                string += "</div><span class='o1'></span><span class='o2'></span><span class='o3'></span><span class='o4'></span></div></div>";
+                $(obj).after(string);
+                $('.key-float').mouseover(
+                    function (){
+                        $(this).siblings().css({"z-index":0})
+                        $(this).css({"z-index":1001});
+                    }
+                );
+                $(obj).next().css({ "left": +offset.left-100, "top": +offset.top+$(obj).height()+12});
+            });
+    }
+    function add_favorite(title) {
+        $.getJSON('{APP_PATH}api.php?op=add_favorite&title='+encodeURIComponent(title)+'&url='+encodeURIComponent(location.href)+'&'+Math.random()+'&callback=?', function(data){
+            if(data.status==1)	{
+                $("#favorite").html('收藏成功');
+            } else {
+                alert('请登录');
+            }
+        });
+    }
+
+
+    var shareText=
+         '<a class="icon-font bds_tsina" href="http://v.t.sina.com.cn/share/share.php?url='+encodeURIComponent(location.href)+'&appkey=3172366919&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到新浪微博" class="t1" target="_blank">&#xe657;</a>'
+        +'<a class="icon-font bds_douban" href="http://www.douban.com/recommend/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到豆瓣" class="t2" target="_blank">&#xe600;</a>'
+        +'<a class="icon-font bds_renren" href="http://share.renren.com/share/buttonshare.do?link='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到人人" class="t3" target="_blank">&#xe693;</a>'
+        +'<a class="icon-font bds_kaixin" href="http://www.kaixin001.com/repaste/share.php?rtitle='+encodeURIComponent('{new_addslashes($title)}')+'&rurl='+encodeURIComponent(location.href)+'&rcontent=" title="分享到开心网" class="t4" target="_blank">&#xe656;</a>'
+        +'<a class="icon-font bds_qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURIComponent(location.href)+'" title="分享到QQ空间" class="t5" target="_blank">&#xe694;</a>';
+    $("#bdshare").append(shareText);
+</script>
+<script defer="defer" type="text/javascript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+<img class='hidden' src="{getPushSoUrl($_SERVER['HTTP_HOST'].$url)}">
+{template 'content', 'foot_end'}

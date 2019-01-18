@@ -1,0 +1,35 @@
+{template "content","header"}
+
+<article class="main-content wrap votesss">
+    <div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> &gt; </span><a href="{APP_PATH}index.php?m=vote&c=index&a=lists&siteid={$siteid}">投票列表</a></div>
+    <article class=" col-left fl">
+        {pc:vote action="lists" order="subjectid desc" siteid="$siteid" num="12" page="$page"}
+        <ul class="tab-item">
+            {loop $data $r}
+            <li class="tab-item "><a title="{$r[subject]}" target="_blank"
+                   href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=1&subjectid={$r['subjectid']}&siteid={$siteid}">{$r[subject]}</a>
+                <span class="blue">(投票数: {$r[votenumber]})</span></li>
+            {/loop}
+        </ul>
+        <div id="pages" class="text-c">{$pages}</div>
+        {/pc}
+    </article>
+    <aside class="col-right fr">
+        <!--广告228x90-->
+        <section class="box">
+            <h5>热门投票</h5>
+            {pc:vote action="hits" siteid="$siteid" num="10" order="DESC"}
+            <ul class="tab-item">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}>
+                    <a href="{APP_PATH}index.php?m=vote&c=index&a=show&catid=53&show_type=1&subjectid={$r['subjectid']}&siteid={$siteid}"
+                       title="{$r[subject]}" target="_blank">{str_cut($r[subject],64,false)}</a></li>
+                {/loop}
+            </ul>
+            {/pc}
+        </section>
+
+    </aside>
+</article>
+{template "content","footer"}
+{template "content","foot_end"}

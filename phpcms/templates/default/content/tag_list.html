@@ -1,0 +1,20 @@
+{template "content","header"}
+<!--main-->
+<article class="main-content wrap">
+    <div class="crumbs"><a href="https://www.zhoulujun.cn">首页</a><span> > </span>{catpos($catid)} 列表</div>
+    <section class="col-left fl">
+
+        <ul class="tab-item">
+            {loop $datas $r}
+            <li>
+                <a href="{$r[url]}" {title_style($r[style])}>{$r[title]}</a>
+                <time>{date('Y-m-d H:i:s',$r[inputtime])}</time>
+            </li>
+            {/loop}
+        </ul>
+        <div id="pages" class="text-c">{$pages}</div>
+    </section>
+    {template "content","right_side"}
+</article>
+{template "content","footer"}
+{template "content","foot_end"}

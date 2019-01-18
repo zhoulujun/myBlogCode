@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<link rel="dns-prefetch" href="https://www.zhoulujun.cn">
+	<meta property="qc:admins" content="6701301207545256636" />
+	<meta property="qc:admins" content="67013017776207545256636" />
+	<meta property="wb:webmaster" content="8baa6e7bb45eab5e" />
+	<meta name="chinaz-site-verification" content="0E4F89F8-B10A-32F4-D9C3-9E3CA5C8D47C" />
+	<meta name="msvalidate.01" content="1C203FC6D1C5223538CCA9D441142232" />
+	<meta name="p:domain_verify" content="c7ac0159c403ba1a0511e67218713854"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta content="yes" name="apple-mobile-web-app-capable"/>
+	<meta name="apple-touch-fullscreen" content="yes"/>
+	<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+	<meta name="keywords" content="{if strpos($SEO['keyword'],'周陆军')}{$SEO['keyword'] }{else}{$SEO['keyword']},周陆军,陆军 {/if}"/>
+	<meta name="author" content="周陆军"/>
+	<meta name="description" content="{$SEO['description']}"/>
+	<link rel="stylesheet" type="text/css" href="{CSS_PATH_CDN}frontend/resume.css"/>
+	<link href="https://www.zhoulujun.cn/favicon.ico" rel="bookmark" type="image/x-icon"/>
+	<link href="https://www.zhoulujun.cn/favicon.ico" rel="icon" type="image/x-icon"/>
+	<link href="https://www.zhoulujun.cn/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+	<link href="https://www.zhoulujun.cn/favicon.ico" rel="apple-touch-icon" type="image/x-icon"/>
+	<script type="text/javascript" src="{JS_PATH_CDN}andy/html5.js"></script>
+	<script type="text/javascript" src="{JS_PATH_CDN}andy/respond.min.js"></script>
+	<script type="text/javascript"  src="{CDN_JQUERY}"></script>
+	<script async="async" type="text/javascript" src="https://hm.baidu.com/hm.js?fb9c1736a4afe1362425e69c7414079c"></script>
+</head>
+<body>
+<header id="header" >
+	<div id="head-menu" class="head-menu none">&#xe615;</div>
+	{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+	<ul class="nav-site">
+		<li class="nav-item">
+			<a href="https://www.zhoulujun.cn">Home</a>
+		</li>
+		{loop $data $k $r}
+		{$r[length]}
+		<li class="nav-item {if $r[catname]=='ML'}active{/if} {if $top_parentid == $r[catid]||$catid==$r[catid]||$parentid==$r[catid]} current{/if}">
+			<a href="{$r[url]}">{$r[catname]}</a>
+			<ul class="nav-sub " >
+				{pc:content action="category" catid="$k" num="10" siteid="$siteid" order="listorder ASC"}
+				{loop $data $r}
+				<li class="nav-sub-item"><a href="{$r[url]}">{$r[catname]}</a></li>
+				{/loop}
+				{/pc}
+
+			</ul>
+
+		</li>
+		{/loop}
+		<li class="clear"></li>
+	</ul>
+	{/pc}
+	{php echo runhook('glogal_menu')}
+</header>
+
+<article id="fullpage">
+	<section class="section">
+		<header class="content tc">
+			<img  class="profile" src="{IMG_PATH}andy/zhoulujun.jpg" alt="周陆军">
+			<h2><span id="legend">Don't be charmed by me ,for </span>I'm just a legend!</h2>
+		</header>
+		<article class="content tc">
+			<section class="birth ib">
+				<h4 class="tc">生辰八字</h4>
+				<p class="top5 ov">
+					<time class="fl">戊辰年【龙年】戊午月 戊午日</time>
+					<span class="fr">巨蟹座</span>
+				</p>
+				<section class="daily-item top5">
+					<section class="daily-info">
+						喜
+					</section>
+					<section class="daily-tips">
+						<section class="content tl ti">
+							<p>骨灰级吃货，却不会做！会玩蛋：蒸、煎、炒……</p>
+							<p>生性属火，爱动(爬山、摄影、乒乓球、羽毛球、足球、单车)，爱折腾。</p>
+
+						</section>
+					</section>
+				</section>
+				<section class="daily-item daily-item-w top5">
+					<section class="daily-info ">
+						恶
+					</section>
+					<section class="daily-tips">
+						<section class="content tl ti">
+							<p>牌，烟，二手烟，SB，娘娘腔，GAY，酒鬼……</p>
+							<p>絮叨，慢吞吞，噪杂……</p>
+							<p>背叛……</p>
+						</section>
+					</section>
+				</section>
+				<section class="daily-item daily-item-s top5">
+					<section class="daily-info ">
+						忌
+					</section>
+					<section class="daily-tips">
+						<section class="content tl ti">
+							<p>丢三落四，急躁，直言……</p>
+							<p>多愁善感，文艺……</p>
+							<p>单反……</p>
+						</section>
+					</section>
+				</section>
+
+			</section>
+			<section class="ib tl ti birth-ex">
+				<section class="content">
+					<h3>命格自解</h3>
+					<p>本人与戊辰年戊午月戊午日生衡阳，据说无天地异象显现。</p>
+					<p>据生辰八字，此命五行火旺，缺金，且缺银，福薄命苦之命。于是改命逆天……</p>
+					<p>据个性，潜意识，以及行为模式来分析命理，则属于「松树命」：</p>
+					<p>天生具有松树一样，择善固执，独立自主，希望往上爬，独立性强，没有依赖心……</p>
+					<p>有自己的想法，能勇于做自已，有强烈的主观，敢于自我表达，能承担责任，照顾弱小。富有同情心，很容易受到感动。</p>
+					<p>此外，周某喜欢彬彬有礼的人，不喜欢耍小聪明的人，凡是有过背叛历史的人，在周某心中自然列入黑名单，</p>
+					<p>而能够让周某佩服的人，多半是有义气，志气与霸气的人。</p>
+					<p>据此，周某一生像松树一样，会经历冬春夏秋，虽然现在命在寒冬，屌丝一个……但又诗曾云：</p>
+					<p>大雪压青松，青松挺且直。要知松高洁，待到雪化时！</p>
+				</section>
+
+			</section>
+		</article>
+
+	</section>
+	<section class="section">
+		<article class="content ">
+			<header class="tc">
+				<h2>自叙——一些闲话</h2>
+			</header>
+			<section class="info-msg">
+
+				<p title="ti">
+					站着姓周，名陆军——生下来不会游，也不会飞，所以不是海军，也不是空军，只是陆军，踏步走，步步来……
+					<br/>English名：andyzhou.笔名很多：纾琼，呓语，夜未央。喜欢写点文字，奈何都是牢骚。
+					<br/>昵称：被人戏称陆道公！初中：豆角、竹杠……高中：院长——入职后：小小军，更有调皮的，称，小陆路，陆陆（奈何太白，太骨感，肌肤是羡慕死万千少女，可惜没有人包养！
+					<br/>来广州，到李阳后，人称，军哥，大侠，陆大侠是也！到常盈后，就简称：大侠！
+				</p>
+				<p>
+					在山沟中长大。割猪菜，放牛，插田，种菜……熟练各种农活。从小立志：做化学家！所以热衷与搞破坏。能拆的东西都拆过。自己觉得修好的东西比拆坏的东西多。奈何……
+				</p>
+				<p>
+					现在，喜欢爬山，打羽毛球，乒乓球，游泳！吃货一枚！平时有点2.亮照3张！
+				</p>
+				<p class="info-pic">
+					<!--<img src="http://cdn.zhoulujun.cn/zhoulujun_2_3.jpg" alt="周陆军 zhoulujun"/><img-->
+						<!--src="http://cdn.zhoulujun.cn/zhoulujun_2_1.jpg" alt="周陆军 zhoulujun"/><img-->
+					  <!--src="http://cdn.zhoulujun.cn/zhoulujun_2_2.jpg"alt="周陆军 zhoulujun"/>-->
+					<img src="http://cdn.zhoulujun.cn/zhoulujun_003.png" alt="周陆军 zhoulujun"/><img
+						src="http://cdn.zhoulujun.cn/zhoulujun_002.png" alt="周陆军 zhoulujun"/><img
+					  src="http://cdn.zhoulujun.cn/zhoulujun_001.png"alt="周陆军 zhoulujun"/>
+
+				</p>
+				<p>
+					故事太多，时间太少，道不清……
+					<br/>伤过，痛过，沉沦过，装过B（暂时做不了A，也不愿沦为C呗……
+					<br/>就Q吧—！
+				</p>
+			</section>
+		</article>
+	</section>
+	<section class="section">
+
+		<div class="slide tc" >
+			<div class="content">
+				<img class="adapt" alt="周陆军" src="http://cdn.zhoulujun.cn/zhoulujun__resume_008.jpg">
+			</div>
+		</div>
+		<div class="slide tc" >
+			<div class="content">
+				<img class="adapt" alt="周陆军-受伤" src="http://cdn.zhoulujun.cn/zhoulujun__resume_009.jpg">
+			</div>
+		</div>
+		<div class="slide tc" ><div class="content"><a href=""><img class="adapt" alt="周陆军" src="http://cdn.zhoulujun.cn/zhoulujun__resume_010.jpg"></a></div></div>
+		<div class="slide tc" ><div class="content"><a href=""><img class="adapt" alt="周陆军" src="http://cdn.zhoulujun.cn/zhoulujun__resume_011.jpg"></a></div></div>
+		<div class="slide tc" ><div class="content"><a href=""><img class="adapt" alt="周陆军" src="http://cdn.zhoulujun.cn/zhoulujun__resume_012.jpg"></a></div></div>
+		<div class="slide tc" ><div class="content"><a href=""><img class="adapt" alt="周陆军" src="http://cdn.zhoulujun.cn/zhoulujun__resume_013.jpg"></a></div></div>
+		<div class="slide tc" ><div class="content"><a href=""><img class="adapt" alt="周陆军" src="http://cdn.zhoulujun.cn/zhoulujun__resume_014.jpg"></a></div></div>
+
+
+	</section>
+	<section class="section">
+		<article class="content his">
+			<section class="his-time">
+				<ul class="his-box his-top">
+					<li>
+						<time>1988<sub>年</sub></time>
+						<h5>出生-<strong>衡山脚下</strong></h5>
+						<p>与王船山，彭玉磷，夏明翰等同乡</p>
+						<p>唯楚有材,于斯为盛——后山木材确实很多!</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>1997<sub>年</sub></time>
+						<h5>转校-<strong>金溪庙</strong></h5>
+						<p>天天捉螃蟹，经常被欺负</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2000<sub>年</sub></time>
+						<h5>转校-<strong>石市中心小学</strong></h5>
+						<p>自生自灭，天天迟到</p>
+						<p>毕业也就混个班级前五</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2002<sub>年</sub></time>
+						<p>
+							第一次收到情书
+
+						</p>
+						<p>哲理思考：爱情、感情</p>
+						<p>腻是搞不清陀！情商低</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>花季 <sub>年</sub></time>
+						<p>情书收到不少，</p>
+						<p>第一次收到花，映山红</p>
+						<p>感动，狠心，继续为化学梦</p>
+
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2007<sub>年</sub></time>
+						<p>开始在轻视学习<strong>PS,corelDraw</strong></p>
+						<p>奈何没有美术功底，做不出美工！</p>
+						<p>开始版式设计，——，不归路</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2008<sub>年</sub></time>
+						<p>第一次去女生家睡</p>
+						<p>于是，一夜失眠，啥都没有干！</p>
+						<p>只是自此以后，喜欢听胡灵的单飞咯</p>
+						<p>发下宏愿，27后谈女友，要干大业！</p>
+						<div class="his-dot"></div>
+					</li>
+
+					<li>
+						<time>2009<sub>年</sub> 10 <sub>月</sub></time>
+						<h5>入职-<strong>李阳疯狂英语</strong></h5>
+						<p>品牌设计专员</p>
+						<p>平面设计，影视后期，网站委会……</p>
+						<div class="his-dot"></div>
+					</li>
+
+					<li>
+						<time>2011<sub>年</sub> 10 <sub>月</sub></time>
+						<h5>入职-<strong>凯词英语领袖学院</strong></h5>
+						<p>品牌运营,企划</p>
+						<p>主要做影视后期方面的工作</p>
+						<div class="his-dot"></div>
+					</li>
+
+					<li>
+						<time>2013<sub>年</sub> 10 <sub>月</sub> </time>
+						<p>第一次正式恋爱吧——无知，小白呗……</p>
+						<p>第二次感情，分手</p>
+						<p>于是，被拉去上：非诚勿扰！</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2014<sub>年</sub> 1 <sub>月</sub>  </time>
+						<p>生平第一次见对方父母</p>
+						<p>第一天见她，第二天见同事，第三天见父母</p>
+						<p>以为自己准备好了，见父母时脑袋都是懵的！</p>
+						<p>错，不过3次，告诫自己最后一次恋爱，然后……,没有然后呢……</p>
+						<p>很多时候愿景在镜子里是丰满的，现实是骨感的</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<p><strong>接下来……</strong></p>
+						<p>平凡的世界：平凡而不平庸的生活！</p>
+						<p>程序猿-进化-类人猿</p>
+					</li>
+
+				</ul>
+				<ul class="his-box his-bottom">
+					<li>
+						<time>1994<sub>年</sub></time>
+						<h5>入读-<strong>石狮小学</strong></h5>
+						<p>小头头,天天给小伙伴们讲故事</p>
+						<p>数学成绩还可以，语文经常吃鸭蛋</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>1999<sub>年</sub></time>
+						<h5>转回-<strong>石狮小学</strong></h5>
+						<p>回来学习大有进步</p>
+						<p>毛笔小字写的不错(唯一自豪点)</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2001<sub>年</sub></time>
+						<h5>入校-<strong>石市中心中学</strong></h5>
+						<p>一个混乱的天堂</p>
+						<p>成绩自由落体。</p>
+						<p>骂人功夫一流</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2003<sub>年</sub></time>
+						<h5>转校-<strong>界牌中学</strong></h5>
+						<p>于是又被欺负的命</p>
+						<p>成绩缓慢提升</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2004<sub>年</sub></time>
+						<h5>入校-<strong>衡阳县六中</strong></h5>
+						<p>第三周，被敲诈……</p>
+						<p>梦想破灭，梦魇……</p>
+						<p>一段不堪回首的历史……</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2008<sub>年</sub></time>
+						<p>印刷厂,开始反思</p>
+						<p>工厂枯燥的日子，发奋学习！</p>
+						<p>美女从未有过地多，辜负不少人啊！</p>
+						<p>3dmax,maya,nuke,reflow,fusion,PR,AE</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2009<sub>年</sub></time>
+						<p>恶补English</p>
+						<p>未来找资料，还有就是美剧……</p>
+						<p>开始折腾电脑…… </p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2010<sub>年</sub></time>
+						<p>父亲得骨髓瘤晚期，病逝</p>
+						<p>在医院陪护的几个月中，思考生命</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2012<sub>年</sub> </time>
+
+						<p>第一次沉迷感情——</p>
+						<p>就一个字：傻！</p>
+						<p>最后沉沦好几个月……</p>
+						<div class="his-dot"></div>
+					</li>
+
+					<li>
+						<time>2013<sub>年</sub> 11 <sub>月</sub> </time>
+						<p>哥们介绍，异地恋开始！</p>
+						<p>学化学，然后就倍感亲切</p>
+						<p>小时候，凄苦的日子有些共鸣吧</p>
+						<div class="his-dot"></div>
+					</li>
+					<li>
+						<time>2013<sub>年</sub> 2 <sub>月</sub></time>
+						<h5>入职-<strong>常盈网络科技有限公司</strong></h5>
+						<p>前端工程师-偶尔带项目</p>
+						<p>html5+JS+PHP+MySql+Android</p>
+						<p>程序猿的干活</p>
+						<div class="his-dot"></div>
+					</li>
+
+				</ul>
+
+			</section>
+
+		</article>
+	</section>
+	<section class="section">
+		<div class="slide" >
+			<div class="content fullH tc" style="padding: 0;background: #fbfbfb;">
+				<a class="fullH" href="https://naotu.baidu.com/viewshare.html?shareId=ax6wk0oy088o" target="_blank">
+					<picture alt="周陆军-详解" class="fullH">
+						<source media="(min-width:200px)" srcset="{IMG_PATH}andy/naotu.svg">
+						<img class="fullH" src="{IMG_PATH}andy/naotu.png" alt="周陆军 zhoulujun"/>
+					</picture>
+				</a>
+			</div>
+		</div>
+		<div class="slide" >
+			<div class="content">
+				<h2 class="tc">IT技能</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>HTML</th>
+							<th>CSS</th>
+							<th>Javascript</th>
+							<th>php</th>
+							<th>java</th>
+							<th>android</th>
+							<th>sql</th>
+							<th>mongoDB</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="tc">
+							<td>精通,html5语言话，重构优化</td>
+							<td>精通，擅长css3动画</td>
+							<td>熟练，水太深，不能说精通</td>
+							<td>熟练，写的较忙，要查手册</td>
+							<td>能用，现在java写很少了</td>
+							<td>熟悉，主整webview包皮，你懂得</td>
+							<td>增删改查，一些基本的功能。</td>
+							<td>能用，用的较少。</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="slide" >
+			<div class="content">
+				<h2 class="tc">设计技能</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>PS</th>
+							<th>corelDraw</th>
+							<th>maya</th>
+							<th>3dMax</th>
+							<th>After Effect</th>
+							<th>premiere！</th>
+							<th>Nuke</th>
+						</tr>
+					</thead>
+					<tbody>
+					<tr class="tc">
+						<td>熟练，切片就不用说了，调色</td>
+						<td>精通，快捷键非常熟</td>
+						<td>熟悉，，现在用的较少染</td>
+						<td>熟悉，擅长粒子动画，材质渲染</td>
+						<td>精通，在nuke后面学的，相对简单/td>
+						<td>精通，剪辑还不错</td>
+						<td>熟练，现在很少用了</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	<section class="section">
+		<div class="content">
+			<h2 class="tc">回味</h2>
+			<p class="tc">
+				未完待续————没有时间来设计，自己都看不下去了！——等我有时间哈！
+			</p>
+
+		</div>
+	</section>
+	<section class="section">
+		<div class="content">
+			<video preload="auto" controls="controls" title="平安智慧城年会-跳舞">
+				<source src="https://media.zhoulujun.cn/video/pingAn_SmartCity/飘向梦想_舞台.mp4"/>
+			</video>
+
+		</div>
+	</section>
+	<section class="section">
+		<div class="content">
+			<video class="video" preload="auto" loop="loop"  controls="controls" title="彩蛋——傻帽">
+				<source src="http://cdn.zhoulujun.cn/pv非诚勿扰_周陆军.mp4" type="video/mp4">
+			</video>
+
+		</div>
+	</section>
+</article>
+{$categorydir}{$catdir}/{$year}_{$month}{$day}_{$id}.html|{$categorydir}{$catdir}/{$year}_{$month}{$day}_{$id}_{$page}.html
+<script type="text/javascript"  src="{JS_PATH_CDN}andy/fullPage.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var fullpage=$('#fullpage');
+		if(document.body.clientWidth<800){
+
+			fullpage.children().eq(0).after($(".birth-ex").addClass("section").removeClass("ib tl  birth-ex"));
+
+			$("#header").addClass("header-m").children("#head-menu").removeClass("none").on("click",function(){
+				var menu=$(this);
+				menu.addClass("hidden").parent().removeClass("header-m");
+
+				setTimeout(function(){
+					menu.removeClass("hidden").parent().addClass("header-m");
+				},2500)
+			});
+
+		}
+		$(".his").on("touchstart",function(e){
+			e.stopPropagation();
+			console.log("aa")
+		});
+		fullpage.fullpage({
+			anchors: ['birthSlide', 'historySlide', 'thirdPage','fourthPage','fifthPath','sixthPage','seventhPage','eighthPage','lastPage'],
+			navigation: true,
+			navigationPosition: 'right',
+			navigationTooltips: ['birth', 'history','thirdSlide','fourthSlide',' fifthSlide',"sixthSlide",'seventhSlide','eighthSlide','lastSlide'],
+			showActiveTooltip: false,
+			slidesNavigation: true,
+			slidesNavPosition: 'bottom',
+			autoScrolling: true,
+			loopHorizontal: true,
+//			sectionsColor: ['#fff', '#f2f2f2', '#7BAABE', 'whitesmoke', '#000'],
+			scrollBar: true,
+			afterLoad: function(anchorLink, index){
+				var loadedSection = $(this);
+				console.log("afterLoad__anchorLink:"+anchorLink+"index:"+index);
+				//using index
+//				if(index == 3){
+//					alert("Section 3 ended loading");
+//				}
+//
+//				//using anchorLink
+//				if(anchorLink == 'secondSlide'){
+//					alert("Section 2 ended loading");
+//				}
+			},
+			onLeave: function(index, nextIndex, direction){
+				var leavingSection = $(this);
+				console.log("onLeave___index:"+index+"nextIndex:"+nextIndex+"direction:"+direction);
+
+//				//after leaving section 2
+//				if(index == 2 && direction =='down'){
+//					alert("Going to section 3!");
+//				}
+//
+//				else if(index == 2 && direction == 'up'){
+//					alert("Going to section 1!");
+//				}
+			},
+			afterSlideLoad: function( anchorLink, index, slideAnchor, slideIndex){
+				var loadedSlide = $(this);
+				console.log("afterSlideLoad___anchorLink:"+anchorLink+"index:"+index+"slideAnchor:"+slideAnchor+"slideIndex:"+slideIndex);
+
+
+				//first slide of the second section
+//				if(anchorLink == 'secondPage' && slideIndex == 1){
+//					alert("First slide loaded");
+//				}
+//
+//				//second slide of the second section (supposing #secondSlide is the
+//				//anchor for the second slide
+//				if(index == 2 && slideIndex == 'secondSlide'){
+//					alert("Second slide loaded");
+//				}
+			}
+		});
+
+	})
+
+
+</script>
+</body>
+</html>

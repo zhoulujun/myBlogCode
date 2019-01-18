@@ -1,0 +1,41 @@
+#
+# robots.txt for PHPCMS v9
+#
+User-agent: *
+Disallow: /360safe
+
+Disallow: /weixin/demo
+Disallow: /weixin/login_test
+Disallow: /weixin/logo
+Disallow: /weixin/randy
+Disallow: /weixin/test
+Disallow: /weixin/weixin
+Disallow: /weixin/zhoulujun
+
+Disallow: /api
+Disallow: /caches
+Disallow: /install
+Disallow: /phpcms
+Disallow: /phpsso_server
+Disallow: /statics
+Disallow: /uploadfile
+Disallow: /media
+Disallow: /cdn
+
+
+
+Disallow: /js.html
+Disallow: /40x.html
+Disallow: /50x.html
+Disallow: /admin.php
+Disallow: /api.php
+Disallow: /BingSiteAuth.xml
+Disallow: /baidu_verify_zgxwPZECfn.html
+Disallow: /cache.appcache
+Disallow: /google9b25cc675b854876.html
+Disallow: /js.html
+Disallow: /MP_verify_O9KFJ0f7of9tjOz0.txt
+Disallow: /wb_8baa6e7bb45eab5e.txt
+
+
+

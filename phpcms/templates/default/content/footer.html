@@ -1,0 +1,54 @@
+<footer class="wrap top15" id="lasts">
+	<article class="box ">
+		<h5><a rel="nofollow" href="{APP_PATH}index.php?m=link&siteid={$siteid}" hidefocus="true" class="more blue">更多>></a>友情链接&nbsp;&nbsp;<a rel="nofollow" href="{APP_PATH}index.php?m=link&c=index&a=register&siteid={$siteid}" class="blue">申请链接</a></h5>
+		<ul class="colli">
+
+			{pc:link action="type_list" siteid="$siteid" linktype="1" order="listorder DESC" num="8" return="pic_link"}
+			{loop $pic_link $v}
+			<li><a rel="nofollow" href="{$v['url']}" title="{$v['name']}" target="_blank"><img src="{$v[logo]}" width="88" alt="{$v['name']}"
+																				height="31"/></a></li>
+			{/loop}
+			{/pc}
+		</ul>
+		{pc:link action="type_list" siteid="$siteid" order="listorder DESC" num="10" return="dat"}
+		<div class="linka">
+			{loop $dat $v}
+			{if $type==0}
+			<a rel="nofollow" href="{$v[url]}" target="_blank">{$v[name]}</a>
+			{else}
+			<a rel="nofollow" href="{$v[url]}" target="_blank"><img src="{$v[logo]}" width="88" height="31" style="border: 1px solid #FFBE7A;"></a>
+			{/if}
+			{/loop}
+		</div>
+		{/pc}
+	</article>
+	{template "content","footer_info"}
+	<a rel="nofollow" id="top" href="#announ">TOP</a>
+</footer>
+
+{if !$catid||$child||$parentid}
+<script type="text/javascript"  src="{CDN_JQUERY}"></script>
+<script type="text/javascript" src="{JS_PATH_CDN}andy/jssor.slider.mini.js"></script>
+{/if}
+<!--//百度广告-->
+<script type="text/javascript" src="https://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">
+	//登陆页面
+   $(".login-box").html('<iframe src="{APP_PATH}index.php?m=member&c=index&a=mini&forward=' + encodeURIComponent(location.href) + '&siteid={get_siteid()}" allowTransparency="true"  width="100%" height="30"  frameborder="0" scrolling="no"></iframe>');
+	//百度广告
+    if (window.isMobile) {
+        //限制高度300 移动
+        BAIDU_CLB_fillSlotAsync('u2864935','RightTop');
+        BAIDU_CLB_fillSlotAsync('u2856155','RightBottom');
+        BAIDU_CLB_fillSlotAsync('u2952834','LeftBottomTop');
+        BAIDU_CLB_fillSlotAsync('u2501784','leftBottom');
+    }else {
+        //300*300 创建于 1/3/2017
+        BAIDU_CLB_fillSlotAsync('u2864931','RightTop');
+        //300*310 创建于 2016-01-20
+        BAIDU_CLB_fillSlotAsync('u2500157','RightBottom');
+        BAIDU_CLB_fillSlotAsync('u2952832','LeftBottomTop');
+        BAIDU_CLB_fillSlotAsync('u2862737','leftBottom');
+    }
+</script>
+

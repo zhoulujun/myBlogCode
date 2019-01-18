@@ -1,0 +1,25 @@
+
+<form name="myform"   action="{APP_PATH}index.php?m=vote&c=index&a=post&subjectid={$subjectid}" method="post" target="_blank">
+    <h6 class="blue">{$subject}</h6>
+    <p>
+        {str_cut($description,150)}
+    </p>
+    <input type="hidden" name="subjectid" value="{$subjectid}">
+    {loop $options $r}
+    {$i++}
+    {if $vote_data['total']==0 }
+    {php $per=0;}
+    {else}
+    {php $per=intval($vote_data[$r['optionid']]/$vote_data['total']*100);}
+    {/if}
+    {php $num++}
+    <div class="vote-list {if $num%2!=0} odd{else}even{/if}">
+        <input type={if $ischeckbox=='0'}"radio"{else}"checkbox"{/if} name="radio[]" id="radio" value="{$r['optionid']}" {$check_status}/>
+        <label>{$r['option']}</label>
+    </div>
+    {/loop}
+    <div class="btn-box">
+        <button class=" btn btn-primary" type="submit">提交</button><a
+         class=" btn btn-info" href="{APP_PATH}index.php?m=vote&c=index&a=result&subjectid={$subjectid}&siteid={$siteid}">查看结果</a>
+    </div>
+</form>

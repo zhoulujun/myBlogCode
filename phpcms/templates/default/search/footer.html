@@ -1,0 +1,10 @@
+<footer class="wrap top15" id="lasts">
+    {template "content","footer_info"}
+    <a rel="nofollow" id="top" href="#announ">TOP</a>
+</footer>
+<script type="text/javascript"  src="{CDN_JQUERY}"></script>
+<script type="text/javascript">
+    //登陆页面
+    document.querySelector(".login-box").innerHTML=('<iframe src="{APP_PATH}index.php?m=member&c=index&a=mini&forward=' + encodeURIComponent(location.href) + '&siteid={get_siteid()}" allowTransparency="true"  width="100%" height="30"  frameborder="0" scrolling="no"></iframe>');
+
+</script>

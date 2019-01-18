@@ -1,0 +1,140 @@
+{template "content","header"}
+
+<!--main-->
+<article class="main-content wrap">
+
+    <article class="col-left fl">
+        {if $catname=="about"}
+            <article id="Article" class="article">
+                <header class="top10">
+                    <h2 class="tc">BRIEF</h2>
+                    <section class="detail-info ti">
+                        <p>平凡、简单的一个人，没有什么出奇之处。嘚瑟着自己的倔强与坚韧。自学成才，练就资深杂家，自鸣博学多才。
+                            码过Java、php、android、ios、前端……
+                            十年后，具有项目的整体设计架构开发能力，目前精研前端。在家带娃之余涉猎些哲学、史学，无聊之时也愤青下时势，求民主之自由</p>
+                    </section>
+                </header>
+                <section class="con-box ">
+                    <h4 class="top10 tc">关于工作
+                        <small>For work</small>
+                    </h4>
+                    <p>生命不止，折腾不休！——有坑得填，没坑创造坑填！</p>
+                    <p>php，java，android，html5，css3，es6，NodeJS，MySql，MongoDB，swift…
+                        后端转移动端，再转战前端，憧憬着泥工变建筑师。
+                    <h5>一入前端深似海，从此混沌定背锅</h5>
+                    <p>n遍业务培训，会议开到怀疑人生。磨砺才醒悟，你不强势，累的活该！
+                        既然前端是连接用户的枢纽，那么他们都是为你服务的！那么，就要按照前端的规矩来。
+                    </p>
+                        把逻辑、数据、交互给整清楚先，
+                        理清数据流，制作接口，安利下阿里的rap，再安利jasmine、Monkey，前端驱动项目开发，都按我的来
+                    </p>
+                    <h5>组件设计，产品架构，性能优化，如此等等，才感到：</h5>
+                    <p>
+                        厚积薄发、高屋建瓴、高瞻远瞩，说易做难，棋谱易解高手难成。三人行必有我师，藉此把日常点点滴滴分享出来，望大家指教。
+                    </p>
+                    <h4 class="top10 tc">哥,只是一个传说
+                        <small>The Big Legendaries</small>
+                    </h4>
+                    <p>
+                        俺来自衡阳靠近南岳的一个小山沟，家里面有5个姐姐，懂事的时候，父亲已经残疾——往事不堪回首！不屈命运,所以逆天!曾做了一个很大的梦：成为伟大化学家！到了高二才发现：
+                        扯蛋！高考完结去了印刷。然后开始摸油漆，开始自学，成了版式设计师。工厂枯燥的日子把别人打游戏看AV把妹的时间，开始学习3d，影视后期。后来到
+                        李阳疯狂英语——神一般的大师，给我当头一击！之前从自身的经历上来讲：吃苦就是吃补之类的思想就是人生哲理，但后来觉得：人，要乐活。无论是工作还是学习，不是去攻克、征服的！
+                        这本身就是一件愉快的事情。这是一个人生折点，关于事业，家庭，感情……都破碎。然后重新开始，走上了it这条不归路！
+                    </p>
+                </section>
+            </article>
+            <div class="top20"></div>
+        {else}
+            <section class="hots-list fl">
+                <label class="hots-label">NEWS</label>
+                {pc:content action="position" posid="10" catid="$catid" thumb="1" order="listorder DESC" num="6" cache="7200"}
+                {php $countPos=count($data)}
+                {loop $data $r}
+                <a href="{$r[url]}" {title_style($r[style])}>
+                    <h5 class="blue {if $n==1} h4-first{/if}">{$r[title]}</h5>
+                    {if $n==1}
+                    <div class="hots-list-p">
+                        <img class="img-load-bg" width="90" height="52" src="https://cache.zhoulujun.cn/images/andy/logo_my.png" data-src="{thumb($r[thumb],90,52)}" alt="{$r[title]}" />
+                        <p class="hots-list-txt">{str_cut($r[description],262)}</p>
+                    </div>
+                    {else}
+                    <p class="hots-list-p txth">{str_cut($r[description],112)}</p>
+                    {/if}
+                </a>
+
+                {/loop}
+                {/pc}
+                {if $countPos<2}
+                {pc:content  action="lists" catid="$catid" order="id DESC" num="6-$countPos"}
+                {loop $data $k $v}
+                <a href="{$v[url]}" title="{$v[title]}">
+                    <h5 class="blue {if $n==1} h4-first{/if}">{$v[title]}</h5>
+                    <p class="hots-list-p txth">{str_cut($v[description],112)}</p>
+                </a>
+                {/loop}
+                {/pc}
+                {/if}
+            </section>
+            <section class="hots-list fr ">
+                <div id="slider_category" class="slides-box">
+                    <!-- Loading Screen -->
+                    <div u="loading" data-u="loading" class="loading"></div>
+                    <!-- Slides Container -->
+                    <div class="slides" u="slides" data-u="slides">
+                        {pc:content action="lists" catid="$catid" order="listorder ASC" thumb="1" num="8" cache="7200"}
+                        {loop $data $k $v}
+                        <div>
+                            <a href="{$v[url]}" title="{$v[title]}">
+                                <p class="slides-title ">{$v[title]}</p>
+                                <img class="img-load-bg" width="441" height="305" u="image" data-u="image" src="{thumb($v[thumb], 441, 305)}" alt="{$v[title]}"/>
+                            </a>
+                            <img class="img-load-bg" width="95" height="64" u="thumb" data-u="thumb" src="{thumb($v[thumb], 95, 64)}" alt="{$v[title]}"/>
+                        </div>
+                        {/loop}
+                        {/pc}
+                    </div>
+                    <div u="thumbnavigator" data-u="thumbnavigator" class="thumbnavigator" style="">
+                        <div u="slides" data-u="slides">
+                            <div u="prototype" data-u="prototype" class="thumb-p">
+                                <div u="thumbnailtemplate" data-u="thumbnailtemplate" class="thumb-i"></div>
+                            </div>
+                        </div>
+                        <span u="arrowleft" data-u="arrowleft" class="arrowleft icon-font">&#xe609;</span>
+                        <span u="arrowright" data-u="arrowright" class="arrowright icon-font">&#xe60a;</span>
+                    </div>
+                </div>
+                <div class="top15 clear"></div>
+            </section>
+        {/if}
+        {loop subcat($catid) $v}
+            {php if($v['type']!=0) continue;}
+            {php $num++}
+            <section class="hots-list {if $num%2==0} fr{else} fl{/if}">
+                <h4 class="blue">{$v[catname]}<a class="more" href="{$v[url]}">更多>></a></h4>
+                <div class="content">
+                    {pc:content action="lists" catid="$v[catid]" thumb="1" num="1" order="listorder DESC,id DESC"}
+                    {loop $data $v}
+                    <a class="hots-list-p" href="{$v[url]}"   title="{$v[title]}"{title_style($v[style])}>
+                        <img class="img-load-bg" src="https://cache.zhoulujun.cn/images/andy/logo_my.png" data-src="{thumb($v[thumb],90,60)}" />
+                        <p class="hots-list-txt">{str_cut($v[description],286,'..')}</p>
+                    </a>
+                    {/loop}
+                    {/pc}
+                    {pc:content action="lists" catid="$v[catid]" num="9" order="listorder DESC,id DESC"}
+                    <ol class="tab-item">
+                        {loop $data $v}
+                            {if $n!=1}
+                            <li {if $n%2==0}class='even'{/if}><a href="{$v[url]}" {title_style($v[style])}>{$v[title]}</a></li>
+                            {/if}
+                        {/loop}
+                    </ol>
+                    {/pc}
+                </div>
+            </section>
+        {/loop}
+    </article>
+    {template "content","right_side"}
+</article>
+{template "content","footer"}
+</body>
+</html>

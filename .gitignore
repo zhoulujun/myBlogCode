@@ -1,0 +1,10 @@
+/caches
+/media
+/nginx
+/html
+/install
+/uploadfile
+/cdn
+/.idea
+/.git
+*.psd

@@ -1,0 +1,241 @@
+{template "content","header"}
+<!--main-->
+<article class="main-content wrap">
+    <article class="col-left fl">
+        <section class="hots-list fl  ">
+            <div  id="slider1_container" class="slides-box" >
+                <!-- Loading Screen -->
+                <div u="loading" class="loading"></div>
+                <!-- Slides Container -->
+                <div class="slides" u="slides" >
+                    {pc:content action="position" posid="8" order="listorder DESC" sort="desc" num="9"}
+                    {loop $data $r}
+                    <div>
+                        <a u=image href="{$r['url']}" title="{str_cut($r['title'],30)}">
+                            <p class="slides-title txth">{str_cut($r['title'],180)}</p>
+                            <img src="{thumb($r['thumb'],310,305)}" alt="{$r['title']}"/>
+                        </a>
+                    </div>
+                    {/loop}
+                    {/pc}
+                </div>
+
+                <!--#region Bullet Navigator Skin Begin -->
+                <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
+
+                <!-- bullet navigator container -->
+                <div u="navigator" class="navigator" style="">
+                    <!-- bullet navigator item prototype -->
+                    <div u="prototype"></div>
+                </div>
+                <!--#endregion Bullet Navigator Skin End -->
+                <a style="display: none" href="http://www.jssor.com">Image Slider</a>
+            </div>
+        </section>
+        <section class="hots-list fr">
+            <label class="hots-label">HOT</label>
+            {pc:content action="hits" catid="$catid" num="6" order="monthviews DESC"}
+            {loop $data $v}
+            <h5 class="blue {if $n==1} h4-first{/if}"><a href="{$v[url]}" {title_style($v[style])}>{$v[title]}</a></h5>
+            {if $n==1}
+            <a class="hots-list-p" href="{$v[url]}" {title_style($v[style])} title="{$v[title]}" >
+                <img src="{thumb($r[thumb],90,60)}" />
+                <p class="hots-list-txt">{str_cut($r[description],262)}</p>
+            </a>
+            {else}
+            <p class="hots-list-p txth">{str_cut($r[description],162)}</p>
+            {/if}
+            {/loop}
+            {/pc}
+        </section>
+        {php $hotPIC=0}
+        {pc:content action="lists" catid="$cid" num="10" order="id DESC"}
+        {if !empty($data)}
+        {php $hotPIC=1}
+        <section class="wrap clear hots-pic">
+            <h4 class="blue">热图</h4>
+            <div  id="slider2_container" class="slides-box" >
+                <!-- Loading Screen -->
+                <div u="loading" class="loading"></div>
+                <!-- Slides Container -->
+                <div class="slides" u="slides" >
+
+                    {loop $data $r}
+
+                    <div>
+                        <a u="image" href="{$r[url]}" title="{$r[title]}">
+                            <img src="{thumb($r[thumb],100,100)}" title="{$r[title]}"/>
+                            <p class="pic-title">{str_cut($r[title],20)}</p>
+                        </a>
+                    </div>
+                    {/loop}
+
+                </div>
+            </div>
+            {/if}
+            {/pc}
+        </section>
+        {loop subcat($catid) $v}
+        {php if($v['type']!=0) continue;}
+        {php $num++}
+        <section class="hots-list {if $num%2==0} fr{else} fl{/if}" >
+            <h4 class="blue">{$v[catname]}<a class="more" href="{$v[url]}" >更多>></a></h4>
+            <div class="content">
+                {pc:content action="lists" catid="$v[catid]" thumb="1" num="9" order="id DESC" }
+                {loop $data $v}
+                {if $n==1}
+                <a class="hots-list-p" href="{$v[url]}"   title="{$v[title]}"{title_style($v[style])}>
+                    <img class="img-load-bg" src="https://cache.zhoulujun.cn/images/andy/logo_my.png" data-src="{thumb($v[thumb],90,60)}" />
+                    <p class="hots-list-txt">{str_cut($v[description],286,'..')}</p>
+                </a>
+                <ol class="tab-item">
+                    {else}
+                    <li {if $n%2==0}class='even'{/if}><a href="{$v[url]}" {title_style($v[style])}>{$v[title]}</a></li>
+                    {/if}
+                    {/loop}
+                </ol>
+            </div>
+
+        </section>
+        {/loop}
+
+
+    </article>
+    <aside class="col-right fr">
+        <article class="box">
+            <h5>公告<a href="" class="more">&nbsp;</a></h5>
+            {pc:announce  action="lists" siteid="$siteid" num="4"}
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><a href="{APP_PATH}index.php?m=announce&c=index&a=show&aid={$r['aid']}">{$r['title']}</a></li>
+                {/loop}
+            </ul>
+            {/pc}
+        </article>
+
+
+        {pc:content  action="position" posid="5" order="listorder DESC" num="5"}
+        {if !empty($data)}
+        <article class="box">
+            <h5 >推荐</h5>
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="点击下载"><strong></strong> {$n} <span class="icon-font">&#xe628;</span></label><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],34)}</a></li>
+                {/loop}
+            </ul>
+        </article>
+        {/if}
+        {/pc}
+
+        {pc:content action="hits" catid="$catid" num="8" order="views DESC" cache="3600"}
+        {if !empty($data)}
+        <article class="box">
+            <h5 >图片排行</h5>
+            <ul class="tab-item">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="下载次数"><strong></strong> {$n} <span class="icon-font">&#xe60f;</span></label><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+                {/loop}
+            </ul>
+        </article>
+        {/if}
+        {/pc}
+
+    </aside>
+</article>
+
+{template "content","footer"}
+<script type="text/javascript" src="{JS_PATH_CDN}andy/jssor.slider.mini.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+
+        var _SlideshowTransitions = [
+            //Fade Twins
+            { $Duration: 700, $Opacity: 2, $Brother: { $Duration: 1000, $Opacity: 2 } },
+            //Rotate Overlap
+            { $Duration: 1200, $Zoom: 11, $Rotate: -1, $Easing: { $Zoom: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: 0.5 }, $Brother: { $Duration: 1200, $Zoom: 1, $Rotate: 1, $Easing: $JssorEasing$.$EaseSwing, $Opacity: 2, $Round: { $Rotate: 0.5 }, $Shift: 90 } },
+            //Switch
+            { $Duration: 1400, x: 0.25, $Zoom: 1.5, $Easing: { $Left: $JssorEasing$.$EaseInWave, $Zoom: $JssorEasing$.$EaseInSine }, $Opacity: 2, $ZIndex: -10, $Brother: { $Duration: 1400, x: -0.25, $Zoom: 1.5, $Easing: { $Left: $JssorEasing$.$EaseInWave, $Zoom: $JssorEasing$.$EaseInSine }, $Opacity: 2, $ZIndex: -10 } },
+            //Rotate Relay
+            { $Duration: 1200, $Zoom: 11, $Rotate: 1, $Easing: { $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: 1 }, $ZIndex: -10, $Brother: { $Duration: 1200, $Zoom: 11, $Rotate: -1, $Easing: { $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: 1 }, $ZIndex: -10, $Shift: 600 } },
+            //Doors
+            { $Duration: 1500, x: 0.5, $Cols: 2, $ChessMode: { $Column: 3 }, $Easing: { $Left: $JssorEasing$.$EaseInOutCubic }, $Opacity: 2, $Brother: { $Duration: 1500, $Opacity: 2 } },
+            //Rotate in+ out-
+            { $Duration: 1500, x: -0.3, y: 0.5, $Zoom: 1, $Rotate: 0.1, $During: { $Left: [0.6, 0.4], $Top: [0.6, 0.4], $Rotate: [0.6, 0.4], $Zoom: [0.6, 0.4] }, $Easing: { $Left: $JssorEasing$.$EaseInQuad, $Top: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Brother: { $Duration: 1000, $Zoom: 11, $Rotate: -0.5, $Easing: { $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Shift: 200 } },
+            //Fly Twins
+            { $Duration: 1500, x: 0.3, $During: { $Left: [0.6, 0.4] }, $Easing: { $Left: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2, $Outside: true, $Brother: { $Duration: 1000, x: -0.3, $Easing: { $Left: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 } },
+            //Rotate in- out+
+            { $Duration: 1500, $Zoom: 11, $Rotate: 0.5, $During: { $Left: [0.4, 0.6], $Top: [0.4, 0.6], $Rotate: [0.4, 0.6], $Zoom: [0.4, 0.6] }, $Easing: { $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Brother: { $Duration: 1000, $Zoom: 1, $Rotate: -0.5, $Easing: { $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Shift: 200 } },
+            //Rotate Axis up overlap
+            { $Duration: 1200, x: 0.25, y: 0.5, $Rotate: -0.1, $Easing: { $Left: $JssorEasing$.$EaseInQuad, $Top: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Brother: { $Duration: 1200, x: -0.1, y: -0.7, $Rotate: 0.1, $Easing: { $Left: $JssorEasing$.$EaseInQuad, $Top: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2 } },
+            //Chess Replace TB
+            { $Duration: 1600, x: 1, $Rows: 2, $ChessMode: { $Row: 3 }, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2, $Brother: { $Duration: 1600, x: -1, $Rows: 2, $ChessMode: { $Row: 3 }, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 } },
+            //Chess Replace LR
+            { $Duration: 1600, y: -1, $Cols: 2, $ChessMode: { $Column: 12 }, $Easing: { $Top: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2, $Brother: { $Duration: 1600, y: 1, $Cols: 2, $ChessMode: { $Column: 12 }, $Easing: { $Top: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 } },
+            //Shift TB
+            { $Duration: 1200, y: 1, $Easing: { $Top: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2, $Brother: { $Duration: 1200, y: -1, $Easing: { $Top: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 } },
+            //Shift LR
+            { $Duration: 1200, x: 1, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2, $Brother: { $Duration: 1200, x: -1, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 } },
+            //Return TB
+            { $Duration: 1200, y: -1, $Easing: { $Top: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2, $ZIndex: -10, $Brother: { $Duration: 1200, y: -1, $Easing: { $Top: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2, $ZIndex: -10, $Shift: -100 } },
+            //Return LR
+            { $Duration: 1200, x: 1, $Delay: 40, $Cols: 6, $Formation: $JssorSlideshowFormations$.$FormationStraight, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2, $ZIndex: -10, $Brother: { $Duration: 1200, x: 1, $Delay: 40, $Cols: 6, $Formation: $JssorSlideshowFormations$.$FormationStraight, $Easing: { $Top: $JssorEasing$.$EaseInOutQuart, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2, $ZIndex: -10, $Shift: -100 } },
+            //Rotate Axis down
+            { $Duration: 1500, x: -0.1, y: -0.7, $Rotate: 0.1, $During: { $Left: [0.6, 0.4], $Top: [0.6, 0.4], $Rotate: [0.6, 0.4] }, $Easing: { $Left: $JssorEasing$.$EaseInQuad, $Top: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Brother: { $Duration: 1000, x: 0.2, y: 0.5, $Rotate: -0.1, $Easing: { $Left: $JssorEasing$.$EaseInQuad, $Top: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2 } },
+            //Extrude Replace
+            { $Duration: 1600, x: -0.2, $Delay: 40, $Cols: 12, $During: { $Left: [0.4, 0.6] }, $SlideOut: true, $Formation: $JssorSlideshowFormations$.$FormationStraight, $Assembly: 260, $Easing: { $Left: $JssorEasing$.$EaseInOutExpo, $Opacity: $JssorEasing$.$EaseInOutQuad }, $Opacity: 2, $Outside: true, $Round: { $Top: 0.5 }, $Brother: { $Duration: 1000, x: 0.2, $Delay: 40, $Cols: 12, $Formation: $JssorSlideshowFormations$.$FormationStraight, $Assembly: 1028, $Easing: { $Left: $JssorEasing$.$EaseInOutExpo, $Opacity: $JssorEasing$.$EaseInOutQuad }, $Opacity: 2, $Round: { $Top: 0.5 } } }
+        ];
+
+
+        var options = {
+            $FillMode: 1,                                       //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
+            $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+            $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+            $AutoPlayInterval: 3500,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+            $SlideshowOptions: {                                //[Optional] Options to specify and enable slideshow or not
+                $Class: $JssorSlideshowRunner$,                 //[Required] Class to create instance of slideshow
+                $Transitions: _SlideshowTransitions,            //[Required] An array of slideshow transitions to play slideshow
+                $TransitionsOrder: 1,                           //[Optional] The way to choose transition to play slide, 1 Sequence, 0 Random
+                $ShowLink: true                                    //[Optional] Whether to bring slide link on top of the slider when slideshow is running, default value is false
+            },
+
+            $BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
+                $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
+                $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+                $SpacingX: 10,                                  //[Optional] Horizontal space between each item in pixel, default value is 0
+                $SpacingY: 10,                                  //[Optional] Vertical space between each item in pixel, default value is 0
+                $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+            }
+        };
+
+        var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+        {if $hotPIC===1}
+        var options2 = {
+            $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+            $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
+            $AutoPlayInterval: 0,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+            $PauseOnHover: 4,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+            $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+            $SlideEasing: $JssorEasing$.$EaseLinear,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
+            $SlideDuration: 1600,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+            $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+            $SlideWidth: 100,                                   //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+            //$SlideHeight: 100,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+            $SlideSpacing: 10, 					                //[Optional] Space between each slide in pixels, default value is 0
+            $DisplayPieces: 7,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+            $ParkingPosition: 0,                              //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+            $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+            $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+            $DragOrientation: 1                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+        };
+
+        var jssor_slider2 = new $JssorSlider$("slider2_container", options2);
+            {/if}
+
+    });
+</script>
+
+{template "content","foot_end"}

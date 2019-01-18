@@ -1,0 +1,24 @@
+{template 'content', 'header'}
+<article class="main-content wrap">
+    <div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} 列表</div>
+    <section class="col-left fl">
+
+        <ul class="tab-item">
+            {pc:content action="lists" catid="$catid" num="25" order="id DESC" page="$page"}
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li class="article-li  {if $n%2==0}even{/if}">
+                    <a class="" href="{$r[url]}" target="_blank"{title_style($r[style])}>{$r[title]}</a>
+                    <time>{date('Y-m-d H:i:s',$r[inputtime])}</time>
+                </li>
+                {if $n%5==0}<li class=""></li>{/if}
+                {/loop}
+            </ul>
+            <div id="pages" class="text-c">{$pages}</div>
+            {/pc}
+        </ul>
+    </section>
+    {template "content","right_side"}
+</article>
+<!--main-->
+{template 'content', 'footer'}

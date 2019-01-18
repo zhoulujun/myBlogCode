@@ -1,0 +1,57 @@
+{template 'content', 'header'}
+<article class="main-content wrap">
+    <div class="crumbs"><a href="{APP_PATH}">首页</a><span> > </span>公告</div>
+    <article class="col-left fl">
+        <section id="Article" class="article">
+            <header>
+                <h1 class="main-title txth">{$title}</h1>
+            </header>
+            <section class="con-box">
+                {$content}
+            </section>
+        </section>
+    </article>
+    <aside class="col-right fr">
+        <article class="box top15">
+            <h5>评论排行</h5>
+            {pc:comment action="bang" cache="3600"}
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li> <a href="{$r[url]}" target="_blank">{str_cut($r[title], 26)}</a></li>
+                {/loop}
+            </ul>
+            {/pc}
+        </article>
+        <article class="box">
+            <h5>运营数据</h5>
+            <ul class="tab-item ">
+                <li>
+                    网站文章总数统计：
+                    {pc:get sql="select count(id) from v9_news" cache="3600" }
+                    <?php echo $data[0]["count(id)"];?>
+                    {/pc}
+                </li>
+                <li>
+                    文章页访问总量统计：
+                    {pc:get sql="select sum(views) as views from v9_hits" cache="3600" }
+                    <?php echo $data[0]["views"];?>
+                    {/pc}
+                </li>
+                <li>
+                    网站栏目统计：
+                    {pc:get sql="select count(catid)  from v9_category" cache="3600" }
+                    <?php echo $data[0]["count(catid)"];?>
+                    {/pc}
+                </li>
+
+            </ul>
+            {/pc}
+        </article>
+
+
+    </aside>
+
+
+</article>
+<!--main-->
+{template 'content', 'footer'}

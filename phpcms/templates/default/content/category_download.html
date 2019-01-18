@@ -1,0 +1,136 @@
+{template "content","header"}
+<article class="main-content wrap">
+    <div class="crumbs"><a href="https://www.zhoulujun.cn">首页</a><span> > </span>{catpos($catid)} 列表</div>
+    <article class="col-left fl">
+
+
+        <article class="wrap  hots-pic">
+            <h4 class="blue">图片新闻</h4>
+            <div  id="slider2_container" class="slides-box" >
+                <!-- Loading Screen -->
+                <div u="loading" class="loading"></div>
+                <!-- Slides Container -->
+                <div class="slides" u="slides" >
+                    {pc:content action="lists" catid="$catid" num="8"  thumb="1" order="id DESC" page="$page"}
+                    {loop $data $r}
+                    {php $count++}
+
+                    <div>
+                        <a u="image" href="{$r[url]}" title="{$r[title]}">
+                            <img src="{thumb($r[thumb],100,100)}" title="{$r[title]}"/>
+                            <p class="pic-title">{str_cut($r[title],20)}</p>
+                        </a>
+                    </div>
+                    {/loop}
+                    {/pc}
+                </div>
+            </div>
+        </article>
+
+        {loop subcat($catid) $v}
+        {php if($v['type']!=0) continue;}
+        {php $num++}
+        <section class="hots-list {if $num%2==0} fr{else} fl{/if}" >
+            <h4 class="blue">{$v[catname]}<a class="more" href="{$v[url]}" >更多>></a></h4>
+            <div class="content">
+                {pc:content action="lists" catid="$v[catid]" thumb="1" num="9" order="id DESC" }
+                {loop $data $v}
+                {if $n==1}
+                <a class="hots-list-p" href="{$v[url]}"   title="{$v[title]}"{title_style($v[style])}>
+                    <img class="img-load-bg" src="https://cache.zhoulujun.cn/images/andy/logo_my.png" data-src="{thumb($v[thumb],90,60)}" />
+                    <p class="hots-list-txt">{str_cut($v[description],286,'..')}</p>
+                </a>
+                <ol class="tab-item">
+                    {else}
+                    <li {if $n%2==0}class='even'{/if}><a href="{$v[url]}" {title_style($v[style])}>{$v[title]}</a></li>
+                    {/if}
+                    {/loop}
+                </ol>
+            </div>
+        </section>
+        {/loop}
+
+    </article>
+    <aside class="col-right fr">
+        <article class="box">
+            <h5>公告<a href="" class="more">&nbsp;</a></h5>
+            {pc:announce  action="lists" siteid="$siteid" num="4"}
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><a href="{APP_PATH}index.php?m=announce&c=index&a=show&aid={$r['aid']}">{$r['title']}</a></li>
+                {/loop}
+            </ul>
+            {/pc}
+        </article>
+
+        <article class="box">
+            <h5 >下载分类</h5>
+            <ul class="tab-item ">
+                {loop subcat($catid) $r}
+                <li {if $n%2==0}class='even'{/if}><a href="{$r[url]}" title="{$r[catname]}">{$r[catname]}</a></li>
+                {/loop}
+            </ul>
+        </article>
+
+
+        {pc:content  action="position" posid="5" order="listorder DESC" num="5"}
+        {if !empty($data)}
+        <article class="box">
+            <h5 >推荐下载</h5>
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="点击下载"><strong></strong> {$n} <span class="icon-font">&#xe628;</span></label><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],34)}</a></li>
+                {/loop}
+            </ul>
+        </article>
+        {/if}
+        {/pc}
+
+        {pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
+        {if !empty($data)}
+        <article class="box">
+            <h5 >下载排行</h5>
+            <ul class="tab-item">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="下载次数"><strong></strong> {$n} <span class="icon-font">&#xe60f;</span></label><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+                {/loop}
+            </ul>
+        </article>
+        {/if}
+        {/pc}
+
+    </aside>
+</article>
+
+
+{template "content","footer"}
+<script type="text/javascript" src="{JS_PATH_CDN}andy/jssor.slider.mini.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        var options2 = {
+            $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+            $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
+            $AutoPlayInterval: 0,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+            $PauseOnHover: 4,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+            $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+            $SlideEasing: $JssorEasing$.$EaseLinear,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
+            $SlideDuration: 1600,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+            $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+            $SlideWidth: 100,                                   //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+            //$SlideHeight: 100,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+            $SlideSpacing: 10, 					                //[Optional] Space between each slide in pixels, default value is 0
+            $DisplayPieces: 7,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+            $ParkingPosition: 0,                              //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+            $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+            $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+            $DragOrientation: 1                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+        };
+
+        var jssor_slider2 = new $JssorSlider$("slider2_container", options2);
+
+
+    });
+</script>
+
+{template "content","foot_end"}

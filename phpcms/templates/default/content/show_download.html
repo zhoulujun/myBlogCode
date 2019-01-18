@@ -1,0 +1,165 @@
+{template "content","header"}
+C:\www\zhoulujun\phpcms\phpcms\templates\default\content\show_download.html
+C:\www\zhoulujun\phpcms\templates\default\content\show_download.html
+<article class="main-content wrap">
+    <div class="crumbs"><a href="https://www.zhoulujun.cn">首页</a><span> > </span>{catpos($catid)} 列表</div>
+    <article  class="col-left fl">
+        <header>
+            <h1 class="main-title txth">{$title}</h1>
+            <p class="detail-info tc">
+                浏览次数：
+                （<span id="hits"></span>（今日：<span id="todaydowns"></span>，本周：<span id="weekdowns"></span>，本月：<span id="monthdowns"></span>）
+
+            </p>
+        </header>
+
+        <table  class="table_info top20">
+            <tbody>
+            <tr>
+                <th>授权形式：</th>
+                <td>{$copytype}</td>
+                <td width="300" rowspan="7" align="center" valign="middle">{if $thumb}<img src="{$thumb}" width="290" height="220" />{/if}</td>
+            </tr>
+            <tr>
+                <th>更新时间：</th>
+                <td>{$updatetime}</td>
+            </tr>
+            <tr>
+                <th>软件语言：</th>
+                <td>{$language}</td>
+            </tr>
+            <tr>
+                <th>软件平台：</th>
+                <td>{$systems}</td>
+            </tr>
+            <tr>
+                <th>软件类别：</th>
+                <td> {$classtype}</td>
+            </tr>
+            <tr>
+                <th>文件大小：</th>
+                <td> {$filesize}</td>
+            </tr>
+            <tr>
+                <th>评论等级：</th>
+                <td class="c_orange"> {$stars}</td>
+            </tr>
+
+            </tbody>
+        </table>
+        <article class="article top20">
+            <h2 class="top20 tc">{$title}</h2>
+            <section class="con-box top10 ">
+                {$content}
+            </section>
+            <section class="box top20">
+                <h5>下载地址</h5>
+                <ul class="tab-item ">
+                    {loop $downfile $r}
+                    <li>{$r}</li>
+                    {/loop}
+                    {loop $downfiles $r}
+                    <li>{$r}</li>
+                    {/loop}
+
+
+                </ul>
+            </section>
+            <p class="top10 ">
+                <strong>上一篇：</strong><a href="{$previous_page[url]}">{$previous_page[title]}</a><br/>
+                <strong>下一篇：</strong><a href="{$next_page[url]}">{$next_page[title]}</a>
+            </p>
+
+
+            <section class="top10">
+                <label class="fl">
+                    <strong>相关热词搜索：</strong>
+                    <a class="blue" href="/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=fuck">fuck</a>
+                    <a class="blue" href="/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=cao">cao</a>
+                    <a class="blue" href="/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=aa">aa</a>
+                </label>
+
+                <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+                    <a class="bds_qzone" title="分享到QQ空间" href="#"></a>
+                    <a class="bds_tsina" title="分享到新浪微博" href="#"></a>
+                    <a class="bds_tqq" title="分享到腾讯微博" href="#"></a>
+                    <a class="bds_renren" title="分享到人人网" href="#"></a>
+                    <span class="bds_more"></span>
+                </div>
+                <span id="favorite" class="fr"></span>
+                <div class="clear"></div>
+            </section>
+            {if module_exists('mood')}
+            <script type="text/javascript" src="{APP_PATH}index.php?m=mood&c=index&a=init&id={id_encode($catid,$id,$siteid)}"></script>
+            {/if}
+            {if $allow_comment && module_exists('comment')}
+            <iframe src="{APP_PATH}index.php?m=comment&c=index&a=init&commentid={id_encode("content_$catid",$id,$siteid)}&iframe=1" width="100%" height="100%" id="comment_iframe" frameborder="0" scrolling="no"></iframe>
+            {/if}
+        </article>
+
+
+    </article>
+    <aside class="col-right fr">
+        <article class="box">
+            <h5>公告<a href="" class="more">&nbsp;</a></h5>
+            {pc:announce  action="lists" siteid="$siteid" num="4"}
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><a href="{APP_PATH}index.php?m=announce&c=index&a=show&aid={$r['aid']}">{$r['title']}</a></li>
+                {/loop}
+            </ul>
+            {/pc}
+        </article>
+
+        {pc:content action="relation" relation="$relation" catid="$catid" num="5" keywords="$rs[keywords]"}
+        {if count($data)!=0}
+        <article class="box">
+            <h5 >相关下载</h5>
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="相关下载"><strong></strong> {$n} <span class="icon-font">&#xe612;</span></label><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],34)}</a></li>
+                {/loop}
+            </ul>
+        </article>
+        {/if}
+        {/pc}
+
+        {pc:content  action="position" posid="5" order="listorder DESC" num="4"}
+        {if count($data)!=0}
+        <article class="box">
+            <h5 >推荐下载</h5>
+            <ul class="tab-item ">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="点击下载"><strong></strong> {$n} <span class="icon-font">&#xe628;</span></label><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],34)}</a></li>
+                {/loop}
+            </ul>
+        </article>
+        {/if}
+        {/pc}
+
+        {pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
+        {if count($data)!=0}
+        <article class="box">
+            <h5 >下载排行</h5>
+            <ul class="tab-item">
+                {loop $data $r}
+                <li {if $n%2==0}class='even'{/if}><label class="rank-list btn-primary" title="下载次数"><strong></strong> {$n} <span class="icon-font">&#xe60f;</span></label><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+                {/loop}
+            </ul>
+        </article>
+        {/if}
+        {/pc}
+
+    </aside>
+</article>
+
+
+{template "content","footer"}
+<script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+<script type="text/javascript" id="bdshare_js" data="type=tools" ></script>
+<script type="text/javascript" id="bdshell_js" src = "//bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion={ceil(time()/3600000)}"></script>
+<script>
+
+
+</script>
+{template "content","foot_end"}

@@ -1,0 +1,22 @@
+{template "content","header"}
+<!--main-->
+<article class="main-content wrap">
+	<div class="crumbs"><a href="https://www.zhoulujun.cn">首页</a><span> > </span>{catpos($catid)} 列表</div>
+	{pc:content action="lists" catid="$catid" num="10" order="id DESC" page="$page"}
+	<ul class="">
+		{loop $data $r}
+		<li class="fl">
+			<div class="">
+				<a href="{$r[url]}"><img src="{thumb($r[thumb],150,112)}" width="150" height="112" alt="{$r[title]}"/></a>
+			</div>
+			<span style="color:{$r[style]}">{str_cut($r[title],28)}</span>
+		</li>
+		{/loop}
+	</ul>
+	<div class="clear"></div>
+	<div id="pages" class="text-c">{$pages}</div>
+	{/pc}
+</article>
+
+{template "content","footer"}
+{template "content","foot_end"}

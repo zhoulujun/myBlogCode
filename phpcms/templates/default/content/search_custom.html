@@ -1,0 +1,171 @@
+{template "content","header"}
+<article class="main-content wrap">
+    <div class="crumbs ov">
+        <div class="fl">
+            <a id="searchEngine">百度</a><span> &gt; </span>搜索结果
+        </div>
+        <div class="fr">
+            <a href="{APP_PATH}index.php??m=search&siteid=1&typeid=1" id="exchangeEngine">切换为谷歌搜索</a>
+            <a href="{APP_PATH}index.php??m=search&siteid=1&typeid=1" id="exchange">切换本站引擎检索</a>
+
+        </div>
+    </div>
+    <section class="col-left fl">
+        <ul class="tab-item " id="list" ></ul>
+    </section>
+    {template "content","right_side_all_site"}
+</article>
+{template "search","footer"}
+
+<script type="text/javascript" >
+    var cse ;    //参数为您的API引擎ID，已自动填写，必需。
+    var form=document.querySelector('searchBaidu-bd');//关键词输入框
+    var textInput=document.getElementById('bdcsMain');//关键词输入框
+    var btnInput=document.getElementById("search");//搜索按钮
+    var listBox=document.getElementById("list");//搜索结果列表框
+    var exchange=document.getElementById("exchange");//搜索结果列表框
+    var exchangeEngine=document.getElementById("exchangeEngine");//搜索结果列表框
+    var searchEngine=document.getElementById("searchEngine");//搜索结果列表框
+    let params=getUrlParams(window.location.search);
+    let initKeyword=params['q'];
+    if(initKeyword){
+        initKeyword=decodeURIComponent(initKeyword);
+        textInput.value=initKeyword;
+    }
+    var googleEnable=false;
+    function getUrlParams(str){
+        let obj={};
+        str.replace(/([^&=?]+)=([^&=?]*)/g,function (str,$1,$2) {
+            obj[$1]=$2;
+            return str;
+        });
+
+        return obj;
+    }
+
+    function searchBaidu (text) {
+        cse.getResult(text, function (data) {
+            console.info('百度搜索结果');
+            console.log(data);
+            createList(data,listBox)
+        });
+    }
+
+    function init () {
+        cse= new BCse.Search("6351075239166713563");
+        initKeyword&&searchBaidu(initKeyword);
+    }
+
+    function createList(arr,select){
+        var str='';
+        if(arr&&arr.length){
+            let tempArr = arr.map(function (data) {
+                return ' <li class="article-li  ">' +
+                    '                <a class="" href="'+data.linkUrl+'" target="_blank">'+data.title+'</a>' +
+                    '                <time>'+data.dispTime+'</time>' +
+                    '            </li>';
+            });
+            str=tempArr.join('');
+        }else {
+            str='<li> 没有找到相关内容——the suitable context had not been found all the time. </li>';
+    }
+
+        select.innerHTML=str;
+        searchEngine.innerHTML='百度';
+        exchangeEngine.innerHTML='切换为谷歌搜索';
+    }
+    btnInput.addEventListener('click',function (e) {
+        e.preventDefault();
+        var text=textInput.value;
+        if(googleEnable){
+            text&&searchByGoogle(text);
+        }else {
+            text&&searchBaidu(text);
+        }
+    });
+
+    exchange.addEventListener('click',function (e) {
+        e.preventDefault();
+        window.location='?m=search&c=index&a=init&siteid=1&typeid=1&q='+textInput.value;
+    });
+    exchangeEngine.addEventListener('click',function (e) {
+        e.preventDefault();
+        var text=textInput.value;
+        console.info('exchangeEngine.innerText');
+        console.log('__________');
+        if(exchangeEngine.innerText==='切换为百度搜索'){
+            text&&searchBaidu(text);
+            googleEnable=true;
+            return false;
+        }else {
+            text&&searchByGoogle(text);
+            googleEnable=false;
+            return false;
+        }
+
+
+    });
+
+    function hndlr(response) {
+        // console.log(JSON.stringify(response));
+        console.log(response);
+        var str='';
+        if(response&&response.items&&response.items.length){
+
+            let tempArr = response.items.map(function (data) {
+                return ' <li class="article-li  ">' +
+                    '                <a class="" href="'+data.link+'" target="_blank">'+data.htmlTitle+'</a>' +
+                    '            </li>';
+            });
+            str=tempArr.join('');
+
+        }else {
+            str='<li>没有找到相关内容</li>';
+        }
+        listBox.innerHTML=str;
+        searchEngine.innerHTML='谷歌';
+        exchangeEngine.innerHTML='切换为百度搜索';
+    }
+
+    function searchByGoogle(keyword){
+        $.ajax({
+            type: 'GET',
+            url: 'https://www.googleapis.com/customsearch/v1',
+            data: {
+                q: keyword,
+                key:'AIzaSyC_pehzzjm8_6lbsegGNgct1-LaACSpvkM',
+                cx:'009558619093950188775:b3wc7giu_hw',
+                siteSearch: 'zhoulujun.cn'
+
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.info('google搜索结果');
+                console.log(data);
+                googleEnable=true;
+                hndlr(data)
+            },
+            error:function (data) {
+                hndlr();
+                // let timer=setTimeout(function () {
+                //     searchBaidu(textInput.value);
+                //     clearTimeout(timer);
+                // },800)
+            }
+
+        });
+    }
+
+    searchByGoogle(initKeyword);
+    /*function setBaidu () {
+        var  scriptEle=document.createElement('script');
+        scriptEle.src="{JS_PATH_CDN}andy/baidu.zn.js";
+        document.body.appendChild(scriptEle);
+    }*/
+
+</script>
+<script type="text/javascript" src="{JS_PATH_CDN}andy/baidu.zn.js"></script>
+</body>
+</html>
+
+

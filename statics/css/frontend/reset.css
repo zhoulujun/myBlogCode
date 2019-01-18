@@ -1,0 +1,120 @@
+@charset "UTF-8";
+html {
+  -webkit-text-size-adjust: none;
+  -webkit-touch-callout: none;
+  height: 100%;
+  word-break: break-all;
+  word-wrap: break-word; }
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  margin: 0;
+  padding: 0; }
+
+article, aside, details, figcaption, figure, footer, header, menu, nav, section, iframe {
+  display: block; }
+
+audio, canvas, video {
+  display: inline-block; }
+
+body, button, input, select, textarea, button {
+  font: 400 12px/1.5 "Microsoft YaHei",Tahoma,"Hiragino Sans GB",SimHei,sans-serif; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+img {
+  border: 0;
+  vertical-align: middle; }
+
+pre {
+  white-space: pre-wrap; }
+
+h1 {
+  font-size: 34px; }
+
+h2 {
+  font-size: 26px; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  font-size: 12px; }
+
+input, label, img, th {
+  vertical-align: middle; }
+
+address, cite, dfn, em, var {
+  font-style: normal; }
+
+code, kbd, pre, samp {
+  font-family: courier new,courier,monospace; }
+
+ul, ol, menu, li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  cursor: pointer; }
+
+a:hover {
+  text-decoration: underline; }
+
+select optgroup {
+  color: #CAC8BB; }
+
+header {
+  display: block; }
+
+input[type=submit], input[type=button] {
+  cursor: pointer; }
+
+/*閫氱敤鏍峰紡*/
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.tl {
+  text-align: left; }
+
+.tc {
+  text-align: center; }
+
+.tr {
+  text-align: right; }
+
+.white, .white a {
+  color: #fff; }
+
+.blue, .blue a {
+  color: #0072c6; }
+
+.gray4, .gray4 a {
+  color: #999; }
+
+.red, .red a {
+  color: red; }
+
+.txth {
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.hidden {
+  display: none; }
+
+.clear {
+  clear: both; }
+

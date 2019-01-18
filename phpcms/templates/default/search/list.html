@@ -1,0 +1,80 @@
+{template 'content', 'header'}
+<article class="main-content wrap">
+	<div class="crumbs ov">
+		<div class="fl">
+			{php $j=0}
+			{loop $search_model $k=>$v}
+			{php $j++;}
+			<a href="javascript:;" onclick="setmodel({$v['typeid']}, $(this),{$siteid}, '{$q}');" {if $v['typeid']==$typeid} class="active"{/if}>{$v['name']}</a>{if $j != count($search_model)} - {/if}
+			{/loop}
+		</div>
+		<div class="fr">
+			(获得约 {$totalnums} 条结果 （用时{sprintf("%01.2f", $execute_time)} 秒）
+		</div>
+	</div>
+	<section class="col-left fl">
+		<ul class="tab-item ">
+
+
+			{loop $dataSearchList $i $r}
+
+			<li class=" ov  {if $n%2==0}even{/if}">
+				{if $r['thumb']}
+				<a class="list-img-item" href="{$r[url]}">
+					<img  src="{$r[thumb]}" width="60" height="60" />
+					<div >
+						<h5>{$r[title]} {if $r['posids']}<img src="{IMG_PATH}icon/small_elite.gif">{/if}</h5>
+						<p>{$r[description]}</p>
+						<p>发布时间：{format::date($r[inputtime], 1)}</p>
+					</div>
+				</a>
+				{else}
+				<a class="" href="{$r[url]}" target="_blank"{title_style($r[style])}>
+					<h5>{$r[title]} {if $r['posids']}<img src="{IMG_PATH}icon/small_elite.gif">{/if}</h5>
+					<p>{$r[description]}</p>
+				</a>
+				<time>发布时间：{format::date($r[inputtime], 1)}</time>
+				{/if}
+			</li>
+
+
+
+
+			{/loop}
+			{if empty($data)} 没有找到相关内容——the suitable context had not been found all the time. {/if}
+		</ul>
+		<div id="pages">{$pages}</div>
+		{if $setting['relationenble']}
+		<div class="ov nav-pages">
+			<label>
+				<strong>相关搜索：</strong>
+				{loop $relation $k $v}
+				<a href="?m=search&c=index&a=init&typeid={$typeid}&siteid={$siteid}&q={$v['keyword']}">{$v['keyword']}</a>
+				{/loop}
+			</label>
+		</div>
+		{/if}
+
+	</section>
+	<aside class="col-right fr">
+		<nav class="box top15">
+			<h5 >By time-按时间搜索</h5>
+			<ul class="tab-item ">
+				<li><a href="?m=search&c=index&a=init&typeid={$typeid}&q={urlencode($search_q)}&siteid={$siteid}&time=all" {if $time=='all' || empty($time)}class="ac"{/if}>全部时间</a></li>
+				<li><a href="?m=search&c=index&a=init&typeid={$typeid}&q={urlencode($search_q)}&siteid={$siteid}&time=day" {if $time=='day'}class="ac"{/if}>一天内</a></li>
+				<li><a href="?m=search&c=index&a=init&typeid={$typeid}&q={urlencode($search_q)}&siteid={$siteid}&time=week" {if $time=='week'}class="ac"{/if}>一周内</a></li>
+				<li><a href="?m=search&c=index&a=init&typeid={$typeid}&q={urlencode($search_q)}&siteid={$siteid}&time=month" {if $time=='month'}class="ac"{/if}>一月内</a></li>
+				<li><a href="?m=search&c=index&a=init&typeid={$typeid}&q={urlencode($search_q)}&siteid={$siteid}&time=year" {if $time=='year'}class="ac"{/if}>一年内</a></li>
+			</ul>
+
+		</nav>
+
+	</aside>
+	<div class="clear"></div>
+
+</article>
+
+{template "search","footer"}
+
+</body>
+</html>

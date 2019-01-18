@@ -1,0 +1,24 @@
+{template 'content','header'}
+<article class="main-content wrap">
+    <div class="crumbs"><a href="https://www.zhoulujun.cn">首页</a><span> > </span>{catpos($catid)} 列表</div>
+
+
+    <div id="sitemap">
+        {loop $CATEGORYS $childid $c}
+        {php $arrcats = explode(',',$c[arrparentid]);}
+        {if in_array($catid,$arrcats)}<!-- 判断只有子栏目的 -->
+        {if $c['ismenu']==1}<!-- 判断栏目是否设置显示 -->
+        <a href="{$c[url]}">{$c[catname]}</a>
+        {/if}
+        {/if}
+        {/loop}
+        </p>
+        {/if}
+        <!-- 判断没有子栏目且设置显示的 -->
+        {if $cat['child']==0 and $cat['parentid']==0 and $cat['ismenu']==1}
+        <h3>{$child}<a href="{$cat[url]}">{$cat[catname]}</a>{$parentid}</h3>{/if}
+        {/loop} </div>
+
+</article>
+{template 'content','footer'}
+{template 'content','foot_end'}

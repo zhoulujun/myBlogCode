@@ -1,0 +1,6 @@
+@mixin circle($radius){
+  width: $radius;height: $radius;border-radius: $radius;
+}
+@mixin ball($radius){
+  @include circle($radius);line-height: $radius;text-align: center;
+}

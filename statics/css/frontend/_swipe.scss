@@ -1,0 +1,22 @@
+.swipe {overflow: hidden;position: relative;
+
+}
+.swipe-wrap {
+  width: 8000px;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.swipe-item{
+  position: relative;display: block;float:left;width:100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  img{width: 100%;}
+  p{position: absolute;bottom:0;left: 0;z-index: 9;width: 94%;padding: 0 3%;height: 28px;background: rgba(0,15,24,.75);background:#0072c6\0;line-height: 28px;font-size: 12px;@extend .txth;color: #fff;}
+}
+#position{
+  position: absolute;top:10px;right: 4%;width: 96%;height: 20px;text-align: right;z-index: 999;
+  li{@extend .ib;@include circle(10px);background: #55acee;margin: 0 0 0 4px;}
+  .on{background:  #004499;}
+}

@@ -1,0 +1,45 @@
+{template "content","header"}
+<link href="{CSS_PATH_CDN}vote.css" rel="stylesheet" type="text/css" />
+<!--main-->
+<div class=" main-content wrap main tps">
+<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> &gt; </span> <a href="{APP_PATH}index.php?m=vote&c=index&a=lists&siteid={$siteid}">投票</a>  </div>
+<form name="myform" id="myform"  action="{APP_PATH}index.php?m=vote&c=index&a=post&subjectid={$subjectid}&siteid={$siteid}" method="post">
+<div class="vote_result">
+    	<div class="tit"><span class="r">总票数：<strong>{$vote_data['total']}</strong></span><h5>标题: {$subject}</h5></div>
+        <div class="c_box wrap">
+		<input type="hidden" name="subjectid" value="{$subjectid}">
+        <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tp">
+       	{loop $options $r}
+       	{$i++}
+             <tr>
+             	<th>{$i}</th>
+               <td class="tp_tit"><input type={if $ischeckbox=='0'}"radio"{else}"checkbox"{/if} name="radio[]" id="radio" value="{$r['optionid']}" {$check_status} /></td>
+               <td class="ls">{$r['option']}</td>
+               <td class="tdcol3"><span class="blue">{php echo $vote_data[$r['optionid']]==''? 0:$vote_data[$r['optionid']]}</span> 票</td>
+             </tr>
+        {/loop}
+        </table>
+
+        </div>
+    </div>
+    <div >
+        <button class="btn btn-primary fl"  type="submit" style="{$display}">点击参加投票</button>
+        <a class="fr btn btn-success" href="{APP_PATH}index.php?m=vote&c=index&a=result&subjectid={$subjectid}&siteid={$siteid}">查看投票结果 </a>
+        <div class="clear"></div>
+    </div>
+    </form>
+    <div class="vote_listt">
+    	<div class="tit"><span class="r blue"><a href="{APP_PATH}index.php?m=vote&c=index&a=lists&siteid={$siteid}">查看更多>></a></span><h5>其他投票</h5></div>
+        <ul class="wrap licol2 icon3j">
+             {pc:vote action="other_vote" num="8" order="subjectid DESC"}
+			 	{loop $data $r}
+
+				 <li><a title="{$r['subject']}" href="{APP_PATH}index.php?m=vote&c=index&a=show&show_type=1&subjectid={$r['subjectid']}">{$r['subject']}</a><span ><font color="#1E50A0">(得票数: {$r['votenumber']})</font></span></li>
+				{/loop}
+			 {/pc}
+
+        </ul>
+    </div>
+</div>
+{template "content","footer"}
+{template "content","foot_end"}

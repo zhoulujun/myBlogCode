@@ -78,6 +78,7 @@ ul.newList li a {padding:3px 8px;display:block;text-decoration: none;}
 div#areaid{border:1px solid #A7A6AA;height:18px;margin:0 5px 0 0;padding:2px 5px 2px;border: 1px solid #d0d0d0;background: #FFF ; position:relative; top:-2px;*top:2px;}
 
 .picList li{ padding:0 0 8px}
+.display {display:none}
 
 /**视频上传**/
 .tbsa{}

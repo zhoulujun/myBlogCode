@@ -15,21 +15,8 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 	#footer{ width:1000px;  margin:auto}
 	#header{ margin-bottom:10px}
 	#memberArea:after{content:".";display:block;height:0;clear:both;visibility:hidden;}#memberArea{display:inline-block;}/* Hides from IE-mac \*/* html #memberArea{height:1%;}#memberArea{display:block;}
-#header .logo {
-	/*padding-right: 100px;*/
-	float: left;
-	font-size: 36px;
-	line-height: 60px;
-	height: 60px;
-	/*padding-left: 100px;*/
-	/*background: url({IMG_PATH}/v9/logo.png) no-repeat left center;*/
-	font-weight: 700;
-	color: #0072c6;
-	vertical-align: center;
-}
-#header .logo img{
-	margin-right: 10px;
-}
+#header .logo{background: url(../images/member/logo.png) no-repeat right center; height:70px; float:left; padding-right:120px}
+#header .logo img{ margin-top:5px}
 #header .logo h3{ display:none}
 #header .link { position: absolute; right:0px; top:10px}
 #header .link a{ color:#333;}
@@ -45,7 +32,7 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 	.nav-bar ul li a.on{ background-position: left -0px; padding-top:0}
 	.nav-bar ul li a.on span{background-position: right -0px;height:27px;padding:5px 10px 0 8px}
 	.nav-bar ul li a.on{color:#fff; }
-
+	
 .col-1{position:relative; border:1px solid #c4d5df; zoom:1;background: url(../images/member/member_title.png) repeat-x}
 .col-1 span.o1,
 	.col-1 span.o2,

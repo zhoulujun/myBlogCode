@@ -41,19 +41,15 @@
 .sr_list .sr_logo div.l{ margin-top:80px;position:relative;}
 .sr_list .jg{ text-align:left; font-size:12px; margin-top:16px;}
 .brd1s{background:url(../images/search/sr_xbg.jpg) no-repeat; width:946px; height:2px; margin:10px auto 0px;}
-
-.sr_lists .l{ padding: 0 20px;text-align: left; background: #fff;float:right;   margin-bottom: 40px;}
-.sr_lists .l div{font-size:12px; padding: 10px 10px 10px 20px;border-left: 1px solid #f2f2f2;border-bottom: 1px dotted #f2f2f2;}
-
-.sr_lists .l div:first-of-type{padding-top:0; }
-.sr_lists .l div:last-of-type{border-bottom: none;}
+.sr_lists{}
+.sr_lists .l{ width:220px; float:left; background:#fff url(../images/search/sr_ybg.jpg) no-repeat right top; height:auto!important; height:842px;margin-right: 20px; min-height:842px;}
+.sr_lists .l div{margin:16px 0px 0px; text-align:right; font-size:12px; background:url(../images/search/sr_bbg.jpg) no-repeat 100% 100%; padding:10px; padding-left:0px; margin-right:1px;}
 .bgno{background:none!important;}
-.sr_lists .l div span{ font-size:14px; color:#999;}
+.sr_lists .l div span{ font-size:12px; color:#999;}
 .sr_lists .l div ul{ margin-top:6px;}
-.sr_lists .l div ul li{ height:24px; line-height:24px;font-size: 12px; overflow:hidden;}
+.sr_lists .l div ul li{ height:24px; line-height:24px; overflow:hidden;}
 .sr_lists .l div ul li a{ padding-right:16px;}
-.sr_lists .l div ul li a:hover,.sr_lists .l div ul li a.ac{background:url(../images/search/bg_member_1.gif) no-repeat 100% -30px; font-weight:bold;}
-
+.sr_lists .l div ul li a:hover,.sr_lists .l div ul li a.ac{background:url(../images/bg_member_1.gif) no-repeat 100% -30px; font-weight:bold;}
 
 .sr_lists .c{text-align:left;}
 .sr_lists .c ul{ margin:10px;}

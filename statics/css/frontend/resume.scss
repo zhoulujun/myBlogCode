@@ -237,7 +237,7 @@
   top:0;z-index: 999;
 }
 .header-m{overflow: hidden;width: 89px!important;height: 32px;  }
-.head-menu{display:none;font-family: iconfont;position: absolute;z-index:99;right:0;padding: 0 5px 0 10px;height: 32px;line-height: 32px;font-size: 18px;color: #fff;}
+.head-menu{font-family: iconfont;position: absolute;z-index:99;right:0;padding: 0 5px 0 10px;height: 32px;line-height: 32px;font-size: 18px;color: #fff;}
 
 .nav-site{
   position: relative;
@@ -369,7 +369,6 @@ table{width: 100%;}
   img{width: 300px;}
 }
 @media (max-width: 800px) {
-  .head-menu{display: block;}
   .info-msg{
     width: auto;
     margin: 0 auto;
@@ -397,6 +396,5 @@ table{width: 100%;}
   thead,tbody{display: inline-block;}
   thead{text-align: right;padding-right: 10px;};
   td,th{display: block;}
-
 }
 .video{width: 80%;display: block;margin: 0 auto;}

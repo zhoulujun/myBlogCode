@@ -7,21 +7,18 @@
 @import "buttons";
 @import "slider";
 
-header,footer{
-  ul,ol,menu{list-style:none;}
-}
 
 .img-load-bg{background:url("../../images/andy/loading.gif") no-repeat center;}
 .header-s{overflow: hidden;height: 30px;line-height: 30px;color: #fff;background: #000;
   a{color: #cecece;}
 }
-.icon-h-sound{float: left;width: 24px;text-align: right;}
+.icon-h-sound{float: left;width: 5%;text-align: right;}
 #announ{
   overflow:hidden; float:left;width: 60%;height: 30px;
   .slides-box{height: 30px;}
   a{display: block;width: 100%;white-space: nowrap;}
 }
-.rss{float: right;display: block;width: 56px;}
+.rss{float: right;display: block;width: 10%;}
 .login-box{float: right;width: 16%;height: 30px;
 }
 .nav-site{
@@ -34,25 +31,17 @@ header,footer{
 
 }
 .current{background: #004499; }
-.nav-item{
-  float: left;padding: 0 10px; position: relative;
-  &:hover,&:active,&:focus{
-    background: #005591;
-    >.nav-sub{display: block;}
-  }
+.nav-item{float: left;padding: 0 10px; position: relative;}
+.nav-item:hover{background: #005591;
+  &,a{color: #fff;}
+  >.nav-sub{display: block;}
 }
-
 .nav-sub{position: absolute;top:30px;left: 0;z-index: 9;display: none;width: 100px;padding:0 10px; background: #005591;}
 .subnav{
   padding: 0 10px;
   overflow: hidden;
   background: #2783c4;
-  a{
-    display: block;padding:0 10px;line-height:22px;color: #fff;float: left;
-    &:hover{
-      background: #2a82bd; ;
-    }
-  }
+  a{display: block;@extend .fl;padding-left: 12px;margin-right: 12px;line-height:22px;color: #fff;}
 
 }
 .ads-h60{
@@ -63,15 +52,12 @@ header,footer{
   height: 310px;
 }
 
-.search-box{
-  margin: 15px auto;position: relative;overflow: hidden;
-}
-
+.search-box{margin: 15px auto;}
+.search-box{position: relative;overflow: hidden;}
 .logo{position: absolute;z-index:9;top:0;left: 0;margin-left: 20px;
-  >img{height: 48px;}
+  >img{height: 52px;}
 }
-.motto{line-height: 1;margin-top: 2px;color: #ccc;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
-.search{ position: relative; float: left;width:40%; padding-left: 136px;}
+.search{ position: relative; float: left;width:40%; padding-left: 120px;}
 .search-tab {
   padding-bottom: 5px;
   span{ color:#ddd}
@@ -82,7 +68,6 @@ header,footer{
 .search-bd{position: relative; height: 22px; padding:6px 62px  6px 6px; background:#ededed; }
 .search-text{width: 98%;height: 20px;padding:0 0 0 1.5% ;line-height: 20px;border: 1px solid #ccc;}
 .search-button ,.search-icon{ position: absolute;top:6px;    }
-
 
 .search-button {
   right: 6px;
@@ -124,11 +109,6 @@ header,footer{
   box-shadow: 1px 0 0 #ccc inset,-1px 0 0 #ccc inset,0 -1px 0 #ccc inset,0 1px 0 #ccc inset;
   position: relative;overflow: hidden;margin-bottom: 15px;
   background-color: #edf6ff;
-  h5{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
   &:nth-of-type(2n){background-color: #e8fff1;
     h4{background: rgba(245,255,210,.3);background: #e6fffc \0;}
   }
@@ -151,9 +131,7 @@ header,footer{
 }
 .hots-list-txt{padding-left: 95px;height: 52px;}
 .more{position: absolute;bottom:10px;right: 16px;font-size: 12px;color: #0072c6;}
-.nav-site,.nav-sub,.tab-item,.colli,.srli,.clr,.list,.c1{
-  list-style: none;
-}
+
 .tab-item{
   >li{
     padding: 6px 16px 5px 6px;border-bottom: 1px dashed #42a5ce;
@@ -169,21 +147,6 @@ header,footer{
 
   }
   .even{background: #e6f2ff;border-bottom: 1px dashed #c0ccc4;}
-  >a{
-    overflow: hidden;
-  }
-  @at-root .list-img-item{
-    >img{
-      float: left;
-      width: 60px;
-      height: 60px;
-    }
-    >div{
-      overflow: hidden;
-      margin-left: 70px;
-      position: relative;
-    }
-  }
 
 }
 
@@ -266,16 +229,9 @@ header,footer{
 .tran-left{border-style: solid;border-width: 6px 0 6px 6px;border-color: transparent transparent transparent  #6e96be;}
 .rank-label{width: 50px;display: inline-block;padding: 0 4px;margin-right: 4px;text-align: right;}
 .rank-list{@extend .rank-label;width: 40px;}
-.crumbs{
-  padding:3px 0 3px 18px;  border-bottom:1px solid #c3d4e7; margin-bottom:10px;
-  a{ color:#004499}
-  span{color:#7e7e7e}
-  .active{
-    color: #0085e1;
-    font-weight: 700;
-  }
-}
-
+.crumbs a{ color:#004499}
+.crumbs{ padding:3px 0 3px 18px;  border-bottom:1px solid #c3d4e7; margin-bottom:10px}
+.crumbs span{color:#7e7e7e}
 
 .article{
   overflow:hidden;border:1px solid #C3D4E7;zoom:1; padding:0 20px;font-size:14px;
@@ -297,11 +253,6 @@ header,footer{
 .summary {background-color:#F6FAFD;border: 1px solid #DCDDDD;margin: 15px 0;padding: 12px 5px 6px;text-align: justify;text-indent: 2em;}
 .con-box{
   padding-bottom: 20px;border-bottom: 1px dashed #ccc;margin-bottom: 20px;
-  @at-root .list-paddingleft-2{margin-left: 1em;}
-  ol,ul{
-    list-style: initial;
-
-  }
   li{
     list-style: outside disc;
     margin: 5px 0 5px 2em ;
@@ -309,6 +260,7 @@ header,footer{
   >p{
     margin-bottom: 5px;
   }
+
 }
 #pages { margin:10px 0 10px;  text-align: center;}
 #pages a,#pages span { display:inline-block; height:22px; line-height:22px;  text-align:center;  padding:0 10px}
@@ -336,7 +288,7 @@ header,footer{
 }
 .table_info{
   width: 100%;border: 1px solid #ccc;
-  box-shadow: 0 0 5px #ddd;
+  box-shadow: 0 0px 5px #ddd;
 }
 
 .table_info td,.table_info th{ border:1px solid #DCE7F3; padding:6px 10px; color:#000;}
@@ -346,28 +298,24 @@ header,footer{
 .search-list li p{ color:#999}
 
 
-
 .ads{
   height: 305px;
   border: 1px solid #95bce6;
 }
 
 
-.nav-pages{
-  line-height: 40px;
-  margin-top: -8px;
-}
+
 #bdshare{
-  float: right!important;display: inline-block!important;padding: 0 4px!important;margin: 0!important;
-  font-size: 26px;
+  float: right!important;
+  display: inline-block!important;
+  padding: 0!important;
+  margin: 0!important;
   >a{
-    padding: 0 3px;
-    color: #333;
+    margin: 0 0 0 6px;
+    font-size: 20px;
   }
 }
-#favorite{
-  margin-right: 4px;
-}
+#favorite{height: 24px;line-height: 24px;margin-right: 4px;}
 @media (max-width: 455px) {
   .icon-h-sound{width: 10%;}
   #announ{width: 50%;}
@@ -469,3 +417,15 @@ header,footer{
   .logo{position: relative;width: 92px;margin: 0 10px;display: block;}
   .search{padding-left: 0;flex: 1;margin-right: 10px;width: 63.5%;float: none;}
 }
+
+
+
+
+
+
+
+
+
+
+
+

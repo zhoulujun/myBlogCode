@@ -115,8 +115,8 @@
   margin: 0;
   padding: 0;
   background-repeat: no-repeat;
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/icons.png);
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/icons.gif) \9 ; }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/icons.png);
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/icons.gif) \9 ; }
 #Article .edui-btn-toolbar .edui-btn.edui-hover, #Article .edui-btn-toolbar .edui-btn.edui-active {
   background-color: #d5e1f2;
   padding: 0;
@@ -311,7 +311,7 @@
   height: 25px;
   background: red;
   vertical-align: bottom;
-  background: url(https://www.zhoulujun.cn/statics/images/andy/ok.gif) no-repeat 1000px 1000px; }
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/ok.gif) no-repeat 1000px 1000px; }
 #Article .edui-combobox-menu .edui-combobox-checked .edui-combobox-icon {
   background-position: 10px 7px; }
 #Article .edui-combobox-menu .edui-combobox-item-separator {
@@ -475,9 +475,9 @@
   width: 21px;
   height: 11px; }
 #Article .edui-popup .edui-popup-caret.up {
-  background: url(https://www.zhoulujun.cn/statics/images/andy/caret.png) no-repeat 0 0; }
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/caret.png) no-repeat 0 0; }
 #Article .edui-popup .edui-popup-caret.down {
-  background: url(https://www.zhoulujun.cn/statics/images/andy/caret.png) no-repeat 0 0; }
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/caret.png) no-repeat 0 0; }
 #Article .edui-tab-nav {
   margin: 0;
   padding: 0;
@@ -1513,10 +1513,10 @@
 #Article .exp-content .list-decimal-paddingleft-1 {
   padding: 9px 0 22px 42px !important; }
 #Article .exp-content .list-exp-ul {
-  background: url(https://www.zhoulujun.cn/statics/images/andy/unsortlist.png) no-repeat scroll 11px 7px transparent;
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/unsortlist.png) no-repeat scroll 11px 7px transparent;
   padding: 0 0 0 41px !important; }
 #Article .exp-content ul li {
-  background: url(https://www.zhoulujun.cn/statics/images/andy/unsortlist.png) no-repeat scroll 0 8px transparent;
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/unsortlist.png) no-repeat scroll 0 8px transparent;
   padding: 0 0 0 25px; }
 #Article .no-format-exp ul li {
   float: none !important;
@@ -1568,7 +1568,7 @@
   min-height: auto !important;
   float: none !important;
   width: auto \9 !important;
-  background: url(https://www.zhoulujun.cn/statics/images/andy/ullist.png) 0 4px no-repeat;
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/ullist.png) 0 4px no-repeat;
   padding: 0 0 0 15px !important;
   margin: auto !important; }
 #Article #editor-content-summary {
@@ -1607,13 +1607,13 @@
   position: absolute;
   right: 8px;
   top: 6px;
-  background: url(https://www.zhoulujun.cn/statics/images/andy/close_icon.gif) no-repeat scroll 0 1px transparent;
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/close_icon.gif) no-repeat scroll 0 1px transparent;
   cursor: pointer;
   height: 20px;
   line-height: 20;
   width: 19px; }
 #Article .album-tips-close-btn-hover {
-  background: url(https://www.zhoulujun.cn/statics/images/andy/close_icon.gif) no-repeat scroll 0 -20px transparent; }
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/close_icon.gif) no-repeat scroll 0 -20px transparent; }
 #Article .album-tips-main .album-tips {
   background-color: #FFFFDA;
   border: 1px solid #D1B07C;
@@ -1657,57 +1657,57 @@
 #Article .small-screen ol.custom_decimal li {
   background-position: 0 4px; }
 #Article li.list-exp-ol-1 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num1.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num1.png); }
 #Article li.list-exp-ol-2 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num2.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num2.png); }
 #Article li.list-exp-ol-3 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num3.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num3.png); }
 #Article li.list-exp-ol-4 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num4.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num4.png); }
 #Article li.list-exp-ol-5 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num5.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num5.png); }
 #Article li.list-exp-ol-6 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num6.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num6.png); }
 #Article li.list-exp-ol-7 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num7.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num7.png); }
 #Article li.list-exp-ol-8 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num8.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num8.png); }
 #Article li.list-exp-ol-9 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num9.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num9.png); }
 #Article li.list-exp-ol-10 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num10.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num10.png); }
 #Article li.list-exp-ol-11 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num11.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num11.png); }
 #Article li.list-exp-ol-12 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num12.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num12.png); }
 #Article li.list-exp-ol-13 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num13.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num13.png); }
 #Article li.list-exp-ol-14 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num14.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num14.png); }
 #Article li.list-exp-ol-15 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num15.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num15.png); }
 #Article li.list-exp-ol-16 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num16.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num16.png); }
 #Article li.list-exp-ol-17 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num17.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num17.png); }
 #Article li.list-exp-ol-18 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num18.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num18.png); }
 #Article li.list-exp-ol-19 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num19.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num19.png); }
 #Article li.list-exp-ol-20 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num20.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num20.png); }
 #Article li.list-exp-ol-21 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num21.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num21.png); }
 #Article li.list-exp-ol-22 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num22.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num22.png); }
 #Article li.list-exp-ol-23 {
-  background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/edit-num23.png); }
+  background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/edit-num23.png); }
 #Article .content-listblock-text embed {
   display: inline-block; }
 #Article .pic-cursor-pointer {
   cursor: pointer; }
 #Article .enter-step-btn {
-  background: url(https://www.zhoulujun.cn/statics/images/andy/num/show-step.png) no-repeat;
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/show-step.png) no-repeat;
   width: 120px;
   height: 40px;
   position: absolute;
@@ -1721,7 +1721,7 @@
   text-align: left;
   cursor: pointer;
   text-decoration: none;
-  _background-image: url(https://www.zhoulujun.cn/statics/images/andy/num/show-step-png8.png);
+  _background-image: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/show-step-png8.png);
   _background-position: -2000px 0; }
 #Article .exp-image-wraper:hover, #Article .exp-image-wraper:visited {
   text-decoration: none; }
@@ -1837,7 +1837,7 @@
   float: left;
   margin-right: 3px; }
 #Article .num0 {
-  background: url(https://www.zhoulujun.cn/statics/images/andy/num/nums_8b3bfc0.png) 0 -216px; }
+  background: url(https://www.zhoulujun.cn/zhoulujun/statics/images/andy/num/nums_8b3bfc0.png) 0 -216px; }
 #Article .wgt-income-money {
   border: 1px solid #f0f0f0;
   height: 118px;

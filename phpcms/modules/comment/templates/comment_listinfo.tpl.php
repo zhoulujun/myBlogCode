@@ -1,5 +1,5 @@
 <?php
-defined('IN_ADMIN') or exit('No permission resources.'); 
+defined('IN_ADMIN') or exit('No permission resources.');
 include $this->admin_tpl('header', 'admin');
 ?>
 
@@ -15,7 +15,7 @@ include $this->admin_tpl('header', 'admin');
     <tbody>
 		<tr>
 		<td>
-		<div class="explain-col">	
+		<div class="explain-col">
 			<?php if($max_table > 1) {?>
 			<?php echo L('choose_database')?>：<select name="tableid" onchange="show_tbl(this)"><?php for($i=1;$i<=$max_table;$i++) {?><option value="<?php echo $i?>" <?php if($i==$tableid){?>selected<?php }?>><?php echo $this->comment_data_db->db_tablepre?>comment_data_<?php echo $i?></option><?php }?></select>
 			<?php }?>
@@ -49,7 +49,7 @@ include $this->admin_tpl('header', 'admin');
 			<th width="130"><?php echo L('author')?></th>
 			<th><?php echo L('comment')?></th>
 			<th width="230"><?php echo L('original').L('title');?></th>
-			<th width="72"><?php echo L('operations_manage');?></th>
+			<th width="94"><?php echo L('operations_manage');?></th>
             </tr>
         </thead>
 		<tbody class="add_comment">
@@ -63,7 +63,7 @@ include $this->admin_tpl('header', 'admin');
 			}
 	?>
      <tr id="tbody_<?php echo $v['id']?>">
-		<td align="center" width="16"><input class="inputcheckbox " name="ids[]" value="<?php echo $v['id'];?>" type="checkbox"></td> 
+		<td align="center" width="16"><input class="inputcheckbox " name="ids[]" value="<?php echo $v['id'];?>" type="checkbox"></td>
 		<td width="130"><?php echo $v['username']?><br /><?php echo $v['ip']?></td>
 		<td><font color="#888888"><?php echo L('chez')?> <?php echo format::date($v['creat_at'], 1)?> <?php echo L('release')?></font><br /><?php echo $v['content']?></td>
 		<td width="230"><a href="?m=comment&c=comment_admin&a=listinfo&search=1&searchtype=0&keyword=<?php echo urlencode($comment_info['title'])?>&pc_hash=<?php echo $_SESSION['pc_hash']?>&tableid=<?php echo $tableid?>"><?php echo $comment_info['title']?></td>

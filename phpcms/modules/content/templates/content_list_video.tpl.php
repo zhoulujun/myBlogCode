@@ -103,7 +103,7 @@ $.fn.inputlimiter = function () {
     });
 };
 $(document).ready(function(){
-	
+
 	$('.bghd').css("opacity","0.6");
 	$('.img175').hover(function(){
 		$(this).find(".hids").toggle();$(this).find('.sjt').toggle();
@@ -130,7 +130,7 @@ $(document).ready(function(){
 <div class="content-menu ib-a blue line-x">
 <a class="add fb" href="javascript:;" onclick=javascript:openwinx('?m=content&c=content&a=add&menuid=&catid=<?php echo $catid;?>&pc_hash=<?php echo $_SESSION['pc_hash'];?>','')><em><?php echo L('add_content');?></em></a>　
 <a href="?m=content&c=content&a=init&catid=<?php echo $catid;?>&pc_hash=<?php echo $pc_hash;?>" <?php if($steps==0 && !isset($_GET['reject'])) echo 'class=on';?>><em><?php echo L('check_passed');?></em></a><span>|</span>
-<?php echo $workflow_menu;?> <a href="javascript:;" onclick="javascript:$('#searchid').css('display','');"><em><?php echo L('search');?></em></a> 
+<?php echo $workflow_menu;?> <a href="javascript:;" onclick="javascript:$('#searchid').css('display','');"><em><?php echo L('search');?></em></a>
 <?php if($category['ishtml']) {?>
 <span>|</span><a href="?m=content&c=create_html&a=category&pagesize=30&dosubmit=1&modelid=0&catids[0]=<?php echo $catid;?>&pc_hash=<?php echo $pc_hash;?>&referer=<?php echo urlencode($_SERVER['QUERY_STRING']);?>"><em><?php echo L('update_htmls',array('catname'=>$category['catname']));?></em></a>
 <?php }?>
@@ -149,21 +149,21 @@ $(document).ready(function(){
 		<tr>
 		<td>
 		<div class="explain-col">
- 
+
 				<?php echo L('addtime');?>：
 				<?php echo form::date('start_time',$_GET['start_time'],0,0,'false');?>- &nbsp;<?php echo form::date('end_time',$_GET['end_time'],0,0,'false');?>
-				
+
 				<select name="posids"><option value='' <?php if($_GET['posids']=='') echo 'selected';?>><?php echo L('all');?></option>
 				<option value="1" <?php if($_GET['posids']==1) echo 'selected';?>><?php echo L('elite');?></option>
 				<option value="2" <?php if($_GET['posids']==2) echo 'selected';?>><?php echo L('no_elite');?></option>
-				</select>				
+				</select>
 				<select name="searchtype">
 					<option value='0' <?php if($_GET['searchtype']==0) echo 'selected';?>><?php echo L('title');?></option>
 					<option value='1' <?php if($_GET['searchtype']==1) echo 'selected';?>><?php echo L('intro');?></option>
 					<option value='2' <?php if($_GET['searchtype']==2) echo 'selected';?>><?php echo L('username');?></option>
 					<option value='3' <?php if($_GET['searchtype']==3) echo 'selected';?>>ID</option>
 				</select>
-				
+
 				<input name="keyword" type="text" value="<?php if(isset($keyword)) echo $keyword;?>" class="input-text" />
 				<input type="submit" name="search" class="button" value="<?php echo L('search');?>" />
 	</div>
@@ -186,7 +186,7 @@ $(document).ready(function(){
             <th width="40"><?php echo L('hits');?></th>
             <th width="70"><?php echo L('publish_user');?></th>
             <th width="118"><?php echo L('updatetime');?></th>
-			<th width="72"><?php echo L('operations_manage');?></th>
+			<th width="94"><?php echo L('operations_manage');?></th>
             </tr>
         </thead>
 <tbody>
@@ -197,7 +197,7 @@ $(document).ready(function(){
 		$path_len = -strlen(WEB_PATH);
 		$release_siteurl = substr($release_siteurl,0,$path_len);
 		$this->hits_db = pc_base::load_model('hits_model');
-		
+
 		foreach ($datas as $r) {
 			$hits_r = $this->hits_db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r['id']));
 	?>
@@ -225,7 +225,7 @@ $(document).ready(function(){
 		<td align='center'>
 		<?php
 		if($r['sysadd']==0) {
-			echo "<a href='?m=member&c=member&a=memberinfo&username=".urlencode($r['username'])."&pc_hash=".$_SESSION['pc_hash']."' >".$r['username']."</a>"; 
+			echo "<a href='?m=member&c=member&a=memberinfo&username=".urlencode($r['username'])."&pc_hash=".$_SESSION['pc_hash']."' >".$r['username']."</a>";
 			echo '<img src="'.IMG_PATH.'icon/contribute.png" title="'.L('member_contribute').'">';
 		} else {
 			echo $r['username'];
@@ -266,7 +266,7 @@ $(document).ready(function(){
 <script language="javascript" type="text/javascript" src="<?php echo JS_PATH;?>swfupload/swf2ckeditor.js"></script>
 </div>
 <script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>cookie.js"></script>
-<script type="text/javascript"> 
+<script type="text/javascript">
 <!--
 function push() {
 	var str = 0;
@@ -310,7 +310,7 @@ function reject_check(type) {
 	} else {
 		$('#reject_content').css('display','');
 		return false;
-	}	
+	}
 }
 
 function update_param(fid, obj) {

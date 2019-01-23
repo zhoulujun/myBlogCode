@@ -6917,19 +6917,18 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 container.style.zIndex = options.zIndex;
 
                 var html = ( ie && browser.version < 9  ? '' : '<!DOCTYPE html>') +
-                    '<html xmlns=\'http://www.w3.org/1999/xhtml\' class=\'view\' ><head>' +
-                    // '<style type=\'text/css\'>' +
+                    '<html xmlns=\'http://www.w3.org/1999/xhtml\'><head>' +
+                    '<style type=\'text/css\'>' +
                     //设置四周的留边
-                    // '.view{padding:0 20px;height:90%;}\n' +
+                    '.view{padding:0;word-wrap:break-word;cursor:text;height:90%;}\n' +
                     //设置默认字体和字号
                     //font-family不能呢随便改，在safari下fillchar会有解析问题
-                    // 'body{margin:8px;font-family:sans-serif;font-size:16px;}' +
+                    'body{margin:8px;font-family:sans-serif;font-size:16px;}' +
                     //设置段落间距
-                    // 'p{margin:5px 0;}' +
-                    // '</style>' +
+                    'p{margin:5px 0;}</style>' +
                     ( options.iframeCssUrl ? '<link rel=\'stylesheet\' type=\'text/css\' href=\'' + utils.unhtml(options.iframeCssUrl) + '\'/>' : '' ) +
                     (options.initialStyle ? '<style>' + options.initialStyle + '</style>' : '') +
-                    '</head><body class=\'view\' ></body>' +
+                    '</head><body  id=\'Article\' class=\'view article\'></body>' +
                     '<script type=\'text/javascript\' ' + (ie ? 'defer=\'defer\'' : '' ) +' id=\'_initialScript\'>' +
                     'setTimeout(function(){editor = window.parent.UE.instants[\'ueditorInstant' + me.uid + '\'];editor._setup(document);},0);' +
                     'var _tmpScript = document.getElementById(\'_initialScript\');_tmpScript.parentNode.removeChild(_tmpScript);</script></html>';
@@ -7273,7 +7272,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             }
             return '<html><head>' + (me.options.charset ? '<meta http-equiv="Content-Type" content="text/html; charset=' + me.options.charset + '"/>' : '')
                 + (headHtmlForIE9 || me.document.getElementsByTagName('head')[0].innerHTML) + headHtml.join('\n') + '</head>'
-                + '<body ' + (ie && browser.version < 9 ? 'class="frame-body"' : '') + '>' + me.getContent(null, null, true) + '</body></html>';
+                + '<body ' + (ie && browser.version < 9 ? 'class="view"' : '') + '>' + me.getContent(null, null, true) + '</body></html>';
         },
 
         /**
@@ -8051,15 +8050,14 @@ UE.Editor.defaultOptions = function(editor){
         initialContent: '',
         initialStyle:'',
         autoClearinitialContent: false,
-        // iframeCssUrl: _url + 'themes/iframe.css',
-        iframeCssUrl: 'https://cache.zhoulujun.cn/css/frontend/frontend.css',
+        iframeCssUrl: _url + 'themes/iframe.css',
         textarea: 'editorValue',
         focus: false,
         focusInEnd: true,
         autoClearEmptyNode: true,
         fullscreen: false,
         readonly: false,
-        zIndex: 900,
+        zIndex: 999,
         imagePopup: true,
         enterTag: 'p',
         customDomain: false,
@@ -12675,7 +12673,7 @@ UE.plugins['paragraph'] = function() {
                         } );
                     }
                     tmpRange.setEndAfter( tmpNode );
-
+                    
                     para = range.document.createElement( style );
                     if(attrs){
                         domUtils.setAttributes(para,attrs);
@@ -12687,7 +12685,7 @@ UE.plugins['paragraph'] = function() {
                     //需要内容占位
                     if(domUtils.isEmptyNode(para)){
                         domUtils.fillChar(range.document,para);
-
+                        
                     }
 
                     tmpRange.insertNode( para );
@@ -12811,7 +12809,7 @@ UE.plugins['paragraph'] = function() {
 
         },
         doDirectionality = function(range,editor,forward){
-
+            
             var bookmark,
                 filterFn = function( node ) {
                     return   node.nodeType == 1 ? !domUtils.isBookmarkNode(node) : !domUtils.isWhitespace(node);
@@ -22739,7 +22737,7 @@ UE.plugins['formatmatch'] = function(){
      });
 
     function addList(type,evt){
-
+        
         if(browser.webkit){
             var target = evt.target.tagName == 'IMG' ? evt.target : null;
         }
@@ -22805,7 +22803,7 @@ UE.plugins['formatmatch'] = function(){
 
     me.commands['formatmatch'] = {
         execCommand : function( cmdName ) {
-
+          
             if(flag){
                 flag = 0;
                 list = [];
@@ -22814,7 +22812,7 @@ UE.plugins['formatmatch'] = function(){
             }
 
 
-
+              
             var range = me.selection.getRange();
             img = range.getClosedNode();
             if(!img || img.tagName != 'IMG'){
@@ -23062,14 +23060,15 @@ UE.plugin.register('searchreplace',function(){
 UE.plugins['customstyle'] = function() {
     var me = this;
     me.setOpt({ 'customstyle':[
-        {tag:'h2',name:'tc',class:'tc'},
-        {tag:'h2',name:'tl'},
-        {tag:'h3',name:'im',class:'tc'},
-        {tag:'h3',name:'hi'},
-        {tag:'h4',name:'h4c',class:'tc'},
+        {tag:'h2',name:'h2l'},
+        {tag:'h2',name:'h2c',class:'tc'},
+        {tag:'h3',name:'h3l'},
+        {tag:'h3',name:'h3c',class:'tc'},
         {tag:'h4',name:'h4l'},
-        {tag:'h5',name:'h5c',class:'tc'},
+        {tag:'h4',name:'h4c',class:'tc'},
         {tag:'h5',name:'h5l'},
+        {tag:'h5',name:'h5c',class:'tc'},
+
     ]});
     me.commands['customstyle'] = {
         execCommand : function(cmdName, obj) {
@@ -25291,7 +25290,7 @@ UE.ui = baidu.editor.ui = {};
         domUtils = baidu.editor.dom.domUtils,
         UIBase = baidu.editor.ui.UIBase,
         uiUtils = baidu.editor.ui.uiUtils;
-
+    
     var Mask = baidu.editor.ui.Mask = function (options){
         this.initOptions(options);
         this.initUIBase();
@@ -25587,7 +25586,7 @@ UE.ui = baidu.editor.ui = {};
         }
     };
     utils.inherits(Popup, UIBase);
-
+    
     domUtils.on( document, 'mousedown', function ( evt ) {
         var el = evt.target || evt.srcElement;
         closeAllPopup( evt,el );
@@ -25683,7 +25682,7 @@ UE.ui = baidu.editor.ui = {};
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
         UIBase = baidu.editor.ui.UIBase;
-
+    
     var TablePicker = baidu.editor.ui.TablePicker = function (options){
         this.initOptions(options);
         this.initTablePicker();
@@ -25767,7 +25766,7 @@ UE.ui = baidu.editor.ui = {};
     var browser = baidu.editor.browser,
         domUtils = baidu.editor.dom.domUtils,
         uiUtils = baidu.editor.ui.uiUtils;
-
+    
     var TPL_STATEFUL = 'onmousedown="$$.Stateful_onMouseDown(event, this);"' +
         ' onmouseup="$$.Stateful_onMouseUp(event, this);"' +
         ( browser.ie ? (
@@ -25776,7 +25775,7 @@ UE.ui = baidu.editor.ui = {};
         : (
         ' onmouseover="$$.Stateful_onMouseOver(event, this);"' +
         ' onmouseout="$$.Stateful_onMouseOut(event, this);"' ));
-
+    
     baidu.editor.ui.Stateful = {
         alwalysHoverable: false,
         target:null,//目标元素和this指向dom不一样
@@ -27401,7 +27400,7 @@ UE.ui = baidu.editor.ui = {};
         setValue : function(value){
             this._value = value;
         }
-
+        
     };
     utils.inherits(MenuButton, SplitButton);
 })();
@@ -28781,7 +28780,7 @@ UE.ui = baidu.editor.ui = {};
             function setCount(editor,ui) {
                 editor.setOpt({
                     wordCount:true,
-                    maximumWords:999999,
+                    maximumWords:10000,
                     wordCountMsg:editor.options.wordCountMsg || editor.getLang("wordCountMsg"),
                     wordOverFlowMsg:editor.options.wordOverFlowMsg || editor.getLang("wordOverFlowMsg")
                 });

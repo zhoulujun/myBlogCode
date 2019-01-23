@@ -10,9 +10,10 @@
  */
 @font-face {
   font-family: 'iconfont';
-  /* project id 700262 */
-  src: url("//at.alicdn.com/t/font_700262_br7sp0umbec.eot");
-  src: url("//at.alicdn.com/t/font_700262_br7sp0umbec.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_700262_br7sp0umbec.woff") format("woff"), url("//at.alicdn.com/t/font_700262_br7sp0umbec.ttf") format("truetype"), url("//at.alicdn.com/t/font_700262_br7sp0umbec.svg#iconfont") format("svg"); }
+  src: url("//at.alicdn.com/t/font_1436500915_5879848.eot");
+  /* IE9*/
+  src: url("//at.alicdn.com/t/font_1436500915_5879848.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_1436500915_5879848.woff") format("woff"), url("//at.alicdn.com/t/font_1436500915_5879848.ttf") format("truetype"), url("//at.alicdn.com/t/font_1436500915_5879848.svg#iconfont") format("svg");
+  /* iOS 4.1- */ }
 .icon-font {
   font-family: 'iconfont'; }
 
@@ -38,18 +39,11 @@ body, button, input, select, textarea, button {
 
 table {
   border-collapse: collapse;
-  border-spacing: 0;
-  border: 1px solid #ccc; }
+  border-spacing: 0; }
 
-thead {
-  background: #c1d6d6; }
-
-td, th {
-  border: 1px solid #ccc;
-  padding: 3px 4px; }
-
-th {
-  border-color: #aaa; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
 img {
   border: 0;
@@ -65,10 +59,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600; }
 
 h1 {
-  font-size: 26px; }
+  font-size: 30px; }
 
 h2 {
-  font-size: 22px; }
+  font-size: 26px; }
 
 h3 {
   font-size: 18px; }
@@ -124,6 +118,31 @@ input[type=submit], input[type=button] {
 sub {
   vertical-align: bottom; }
 
+/*通用样式*/
+.anim, #top {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0); }
+
+#top {
+  position: fixed;
+  display: block;
+  width: 40px;
+  height: 40px;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  background: rgba(0, 84, 148, 0.85);
+  background: #0078D7 \0; }
+
+#top:hover {
+  text-decoration: none; }
+
 body {
   color: #444; }
 
@@ -134,15 +153,6 @@ a {
 a:hover {
   text-decoration: underline;
   color: #1E50A2; }
-
-/*通用样式*/
-.anim, #top {
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0); }
 
 .fl {
   float: left; }
@@ -234,28 +244,6 @@ a:hover {
 .adapt {
   max-width: 100%;
   max-height: 100%; }
-
-.bn {
-  border: none; }
-
-.bg-gray {
-  background: #fcfcfc; }
-
-#top {
-  position: fixed;
-  display: block;
-  width: 40px;
-  height: 40px;
-  bottom: 20px;
-  right: 20px;
-  color: #fff;
-  text-align: center;
-  line-height: 40px;
-  background: rgba(0, 84, 148, 0.85);
-  background: #0078D7 \0 ; }
-
-#top:hover {
-  text-decoration: none; }
 
 #superContainer {
   height: 100%;
@@ -456,7 +444,6 @@ a:hover {
   height: 32px; }
 
 .head-menu {
-  display: none;
   font-family: iconfont;
   position: absolute;
   z-index: 99;
@@ -665,9 +652,6 @@ table {
     width: 300px; }
 
 @media (max-width: 800px) {
-  .head-menu {
-    display: block; }
-
   .info-msg {
     width: auto;
     margin: 0 auto; }

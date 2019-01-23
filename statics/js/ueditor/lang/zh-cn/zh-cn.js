@@ -62,14 +62,14 @@ UE.I18N['zh-cn'] = {
         'timesNewRoman':'times new roman'
     },
     'customstyle':{
-        'tc':'h2标题居中',
-        'tl':'h2标题居左',
-        'im':'h3标题居中',
-        'hi':'h3标题居左',
-        'h4c':'h4标题居中',
+        'h2l':'h2标题居左',
+        'h2c':'h2标题居中',
+        'h3l':'h3标题居左',
+        'h3c':'h3标题居中',
         'h4l':'h4标题居左',
-        'h5c':'h5标题居中',
+        'h4c':'h4标题居中',
         'h5l':'h5标题居左',
+        'h5c':'h5标题居中',
     },
     'autoupload': {
         'exceedSizeError': '文件大小超出限制',

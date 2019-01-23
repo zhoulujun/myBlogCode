@@ -62,14 +62,14 @@ UE.I18N['en'] = {
         'timesNewRoman':'Times New Roman'
     },
     'customstyle':{
-        'tc':'h2 Title center',
-        'tl':'h2 Title left',
-        'im':'h3 title center',
-        'hi':'h3 left',
-        'h4c':'h4 center',
-        'h4l':'h4 left',
-        'h5c':'h5 center',
-        'h5l':'h5 left',
+        'h2l':'h2Title left',
+        'h2c':'h2Title center',
+        'h3l':'h3Title left',
+        'h3c':'h3Title center',
+        'h4l':'h4Title left',
+        'h4c':'h4Title center',
+        'h5l':'h5Title left',
+        'h5c':'h5Title center',
     },
     'autoupload': {
         'exceedSizeError': 'File Size Exceed',

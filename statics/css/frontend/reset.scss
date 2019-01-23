@@ -13,51 +13,25 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 article, aside, details, figcaption, figure, footer, header, menu, nav, section,iframe { display:block; }
 audio, canvas, video { display:inline-block;  }
 body, button, input, select, textarea,button{font: 400 12px/1.5 "Microsoft YaHei",Tahoma,"Hiragino Sans GB",SimHei,sans-serif;}
-table{
-  border-collapse:collapse;
-  border-spacing:0;
+table{border-collapse:collapse;border-spacing:0;border: 1px solid #ccc;}
+thead{background: #b7cad3
+}
+.bg-title{background: #f2f2f0;}
+th,td{
   border: 1px solid #ccc;
+  padding: 3px;
 }
-thead{
-  background: #c1d6d6;
+th{
+  border-color: #aaa;
 }
-td,th{
-  border: 1px solid #ccc;
-  padding: 3px 4px;
-}
-th{border-color: #aaa;}
 img { border:0; vertical-align:middle; }
 pre {
   white-space: pre-wrap;
   background-color: #F2FBFF;
   margin: 6px 0;
-  padding: 6px 10px;
-}
+  padding: 6px 10px; }
 h1,h2,h3,h4,h5,h6{font-weight: 600;}
-
-h1 {
-  font-size: 26px;
-}
-
-h2 {
-  font-size: 22px;
-}
-
-h3 {
-  font-size: 18px;
-}
-
-h4 {
-  font-size: 16px;
-}
-
-h5 {
-  font-size: 14px;
-}
-
-h6 {
-  font-size: 12px;
-}
+h1{font-size:26px;}h2{font-size:22px;}h3{font-size:18px; }h4{font-size:16px;}h5{font-size:14px;}h6{font-size:12px;}
 
 input,img,th{vertical-align:middle;}address,cite,dfn,em,var{font-style:normal;}
 code,kbd,pre,samp{font-family:courier new,courier,monospace;}
@@ -79,10 +53,6 @@ select optgroup{color:#CAC8BB;}
 header{ display:block}
 input[type=submit],input[type=button]{cursor: pointer;}
 sub{vertical-align: bottom;}
-
-body{color:#444;}
-a{text-decoration:none; color:#444}
-a:hover{text-decoration:underline; color:#1E50A2}
 /*通用样式*/
 .anim{
   -webkit-backface-visibility: hidden;
@@ -92,7 +62,11 @@ a:hover{text-decoration:underline; color:#1E50A2}
   -moz-transform: translate3d(0,0,0);
   -ms-transform: translate3d(0,0,0);
 }
-
+#top{@extend .anim;position: fixed;display: block;width: 40px;height: 40px;bottom: 20px;right: 20px;color: #fff;text-align: center;line-height: 40px;background: rgba(0,84,148,.85);background: #0078D7\0;}
+#top:hover{text-decoration: none;}
+body{color:#444;}
+a{text-decoration:none; color:#444}
+a:hover{text-decoration:underline; color:#1E50A2}
 .fl{float: left;}
 .fr{float: right;}
 .tl{text-align: left;}
@@ -122,8 +96,4 @@ a:hover{text-decoration:underline; color:#1E50A2}
 .ov{overflow: hidden;}
 .adapt{max-width: 100%;max-height: 100%;}
 .bn{border: none;}
-.bg-gray{background: #fcfcfc}
-#top{@extend .anim;position: fixed;display: block;width: 40px;height: 40px;bottom: 20px;right: 20px;color: #fff;text-align: center;line-height: 40px;background: rgba(0,84,148,.85);background: #0078D7\0;}
-#top:hover{text-decoration: none;}
-
 
